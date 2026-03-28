@@ -1,0 +1,65 @@
+<div class="solution-page">
+    <!-- Hero -->
+    <header class="solution-hero">
+        <div class="container hero-content">
+            <span class="section-label">Solutions</span>
+            <h1>Mining Operations</h1>
+            <p class="hero-lead">Aerial Intelligence for Mining & Resource Operations. Precision volumetric mapping and
+                site monitoring.</p>
+            <div class="hero-actions">
+                <a routerLink="/contact" class="btn-primary">Connect with Mining Experts</a>
+            </div>
+        </div>
+        <div class="hero-bg-overlay"></div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="intro-section">
+        <div class="container thin-content">
+            <h2 class="text-accent">Industrial Precision, High-Altitude Data</h2>
+            <p>At JRNEX, we optimize mining operations with high-precision drone technology. From volumetric mapping of
+                stockpiles to real-time site monitoring, our AI-driven insights empower your resource management with
+                unparalleled accuracy and efficiency.</p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-heading text-center">How Aerial Intelligence Transforms Mining</h2>
+            <div class="features-grid">
+                <div class="feature-item card" *ngFor="let feature of features">
+                    <div class="feature-icon">{{ feature.icon }}</div>
+                    <h3>{{ feature.title }}</h3>
+                    <p>{{ feature.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases dark-section">
+        <div class="container">
+            <h2 class="section-heading text-center">Key Mining Applications</h2>
+            <div class="use-case-grid">
+                <div class="use-case-card" *ngFor="let ucc of useCases">
+                    <div class="use-case-img" [style.backgroundImage]="'url(' + ucc.img + ')'"></div>
+                    <div class="use-case-content">
+                        <h3>{{ ucc.title }}</h3>
+                        <p>{{ ucc.desc }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bottom-cta section-padding">
+        <div class="container shadow-card glass-card text-center">
+            <h2 class="h1">Ready to Optimize Your Mining Operations?</h2>
+            <p class="muted">Contact us for a detailed brief on how our drone solutions can drive resource intelligence
+                in your site.</p>
+            <a routerLink="/contact" class="btn-primary btn-lg">Get in Touch →</a>
+        </div>
+    </section>
+</div>

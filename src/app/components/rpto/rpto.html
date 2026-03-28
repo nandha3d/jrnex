@@ -1,0 +1,184 @@
+<!-- =============================================================
+     RPTO Training Page
+     Route: /rpto
+     Theme: JRNEX brand blue (#3b82f6) for accent consistency
+
+     Layout:
+       1. Hero Section      — gradient background, headline, CTAs
+       2. Intro Section     — two-column text + image (our journey)
+       3. Offerings Grid    — 5-card grid of training programs
+       4. Coming Soon       — Small Class Drone License announcement
+       5. Benefits Grid     — 4-card value-propositions
+       6. Closing CTA       — dark gradient call-to-action
+     ============================================================= -->
+
+<div class="rpto-page">
+
+    <!-- ===== SECTION 1: HERO ===== -->
+    <!-- Full-viewport hero with dark gradient, floating particles, and headline.
+         Includes a prominent "Coming Soon" badge for Small Class Drone License. -->
+    <header class="rpto-hero">
+        <!-- Radial gradient overlays for visual depth -->
+        <div class="hero-bg-gradient"></div>
+        <!-- Floating ambient particles (purely decorative, CSS-animated) -->
+        <div class="hero-particles">
+            <div class="particle p1"></div>
+            <div class="particle p2"></div>
+            <div class="particle p3"></div>
+        </div>
+        <div class="container hero-inner">
+            <!-- Service category badge pill -->
+            <div class="hero-badge">🎓 RPTO TRAINING</div>
+            <h1>Shaping the Future<br>of Drone Pilots</h1>
+            <p class="hero-lead">
+                DGCA-approved Remote Pilot Training at JRNEX — world-class training, hands-on flying
+                experience, and AI-powered simulations to equip pilots with the skills needed for safe
+                and efficient drone operations.
+            </p>
+            <!-- Primary (filled) and secondary (outline) CTA buttons -->
+            <div class="hero-actions">
+                <a routerLink="/contact" class="btn-primary">Enroll Now <span>→</span></a>
+                <a href="#offerings" class="btn-ghost">View Programs</a>
+            </div>
+            <!-- Quick stat indicators in the hero -->
+            <div class="hero-stats">
+                <div class="hstat">
+                    <span class="hstat-val">DGCA</span>
+                    <span class="hstat-label">Approved</span>
+                </div>
+                <div class="hstat">
+                    <span class="hstat-val">100+</span>
+                    <span class="hstat-label">Pilots Trained</span>
+                </div>
+                <div class="hstat">
+                    <span class="hstat-val">5+</span>
+                    <span class="hstat-label">Industry Programs</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== SECTION 2: INTRO — OUR JOURNEY ===== -->
+    <!-- Two-column introduction explaining why JRNEX launched its RPTO. -->
+    <section class="intro-section">
+        <div class="container intro-grid">
+            <!-- Left column: descriptive text block -->
+            <div class="intro-text">
+                <span class="section-label">Our Journey</span>
+                <h2>Why We Launched RPTO Training</h2>
+                <p>
+                    With India's drone industry rapidly expanding, skilled pilots are in high demand across
+                    sectors like agriculture, surveying, defense, logistics, and disaster management.
+                    Our deep experience in drone technology made us realize that a lack of trained
+                    professionals was a major challenge in the industry.
+                </p>
+                <p>
+                    We launched our DGCA-approved RPTO to bridge this gap, offering world-class training,
+                    hands-on flying experience, and AI-powered simulations to equip pilots with the skills
+                    needed for safe and efficient drone operations.
+                </p>
+            </div>
+            <!-- Right column: image with floating data cards -->
+            <div class="intro-visual">
+                <img src="assets/hero_03.png" alt="RPTO training facility" class="intro-img"
+                    style="background: #0c1220;">
+                <!-- Floating card: Certification type -->
+                <div class="float-card fc-1">
+                    <span class="fc-icon">📜</span>
+                    <div>
+                        <strong>Certification</strong>
+                        <span class="fc-val">DGCA</span>
+                    </div>
+                </div>
+                <!-- Floating card: Flight hours indicator -->
+                <div class="float-card fc-2">
+                    <span class="fc-icon">🛩️</span>
+                    <div>
+                        <strong>Flight Hours</strong>
+                        <span class="fc-val">50+ hrs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 3: WHAT WE OFFER ===== -->
+    <!-- 5-card grid showcasing training programs. Data from `offerings` array. -->
+    <section id="offerings" class="offerings-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Programs</span>
+                <h2>What We Offer</h2>
+            </div>
+            <div class="offerings-grid">
+                <!-- Offering card: icon, title, description -->
+                <div class="offering-card" *ngFor="let o of offerings">
+                    <div class="offering-icon">{{ o.icon }}</div>
+                    <h3>{{ o.title }}</h3>
+                    <p>{{ o.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 4: COMING SOON — SMALL CLASS DRONE LICENSE ===== -->
+    <!-- Prominent announcement banner for the upcoming Small Class Drone License.
+         Highlights that JRNEX is expanding its RPTO capabilities. -->
+    <section class="coming-soon-section">
+        <div class="container">
+            <div class="coming-soon-card">
+                <div class="cs-badge">COMING SOON</div>
+                <div class="cs-content">
+                    <div class="cs-icon">🚀</div>
+                    <h2>Small Class Drone License</h2>
+                    <p>
+                        We are expanding our DGCA-approved RPTO to include the
+                        <strong>Small Class Drone License</strong> program. This certification will
+                        enable pilots to operate drones weighing between 2kg and 25kg, opening doors to
+                        commercial-grade operations in agriculture, surveying, infrastructure inspection,
+                        and more. Stay tuned for the official launch.
+                    </p>
+                    <a routerLink="/contact" class="btn-notify">Get Notified →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 5: WHY TRAIN WITH JRNEX ===== -->
+    <!-- 4-card benefits grid. Data from `benefits` array. -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Why Choose Us</span>
+                <h2>Why Train with JRNEX?</h2>
+            </div>
+            <div class="benefits-grid">
+                <!-- Benefit card: icon, title, short description -->
+                <div class="benefit-card" *ngFor="let b of benefits">
+                    <div class="benefit-icon">{{ b.icon }}</div>
+                    <h3>{{ b.title }}</h3>
+                    <p>{{ b.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 6: CLOSING CTA ===== -->
+    <!-- Dark gradient call-to-action encouraging visitors to enroll.
+         Includes decorative radial glow and a prominent "Enroll" button. -->
+    <section class="closing-cta">
+        <div class="container cta-inner">
+            <!-- Decorative blurred glow circle -->
+            <div class="cta-glow"></div>
+            <h2>We Don't Just Train Pilots — We Create Leaders</h2>
+            <p>
+                At JRNEX RPTO, we empower the next generation of drone professionals, driving
+                innovation, enhancing safety, and transforming industries with next-gen UAV expertise.
+            </p>
+            <div class="cta-actions">
+                <a routerLink="/contact" class="btn-primary btn-lg">Start Your Training →</a>
+            </div>
+        </div>
+    </section>
+
+</div>

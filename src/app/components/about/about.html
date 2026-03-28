@@ -1,0 +1,89 @@
+<div class="solution-page about-page">
+    <!-- Hero -->
+    <header class="solution-hero">
+        <div class="container hero-content">
+            <span class="section-label">About JRNEX</span>
+            <h1>A Full-Spectrum Technology Company</h1>
+            <p class="hero-lead">Delivering actionable intelligence through advanced aerial data, AI-driven analytics,
+                and IoT integration.</p>
+        </div>
+        <div class="hero-bg-overlay"></div>
+    </header>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container grid-2">
+            <div class="card mission">
+                <span class="card-label">Our Mission</span>
+                <h3>{{ mission }}</h3>
+            </div>
+            <div class="card vision">
+                <span class="card-label">Our Vision</span>
+                <h3>{{ vision }}</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="our-story">
+        <div class="container">
+            <div class="story-content">
+                <span class="section-label">Our Journey</span>
+                <h2>From a Prototype to a Powerhouse</h2>
+                <p>
+                    Founded in 2020, JRNEX started with a simple belief: that drones could do more than just capture
+                    photos. We saw the potential for aerial data to solve complex industrial problems—from detecting
+                    crop diseases months before they become visible to the naked eye, to mapping thousands of acres of
+                    rugged mining terrain in hours.
+                </p>
+                <p>
+                    Today, we are a full-spectrum technology company, designing our own hardware and software to provide
+                    end-to-end solutions for the most demanding industries.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="core-values dark-section">
+        <div class="container">
+            <span class="section-label">What Drives Us</span>
+            <h2 class="section-heading">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-item" *ngFor="let value of values">
+                    <h3>{{ value.title }}</h3>
+                    <p>{{ value.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team">
+        <div class="container">
+            <span class="section-label">The Experts</span>
+            <h2 class="section-heading">Meet Our Leadership</h2>
+            <div class="team-grid">
+                <div class="team-card" *ngFor="let member of team">
+                    <div class="member-image"></div>
+                    <div class="member-info">
+                        <h3>{{ member.name }}</h3>
+                        <span class="member-role">{{ member.role }}</span>
+                        <p>{{ member.bio }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Ready to elevate your career?</h2>
+                <p>We are always looking for passionate people to join our mission.</p>
+                <a routerLink="/contact" class="btn-primary">View Open Positions</a>
+            </div>
+        </div>
+    </section>
+</div>

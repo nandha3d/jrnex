@@ -1,0 +1,182 @@
+<!-- =============================================================
+     Mapping & Survey Service Page
+     Route: /solutions/mapping
+     
+     Layout:
+       1. Hero Section     — gradient background, headline, CTAs, stats
+       2. Intro Section    — two-column text + image with floating cards
+       3. Process Timeline — 5-step vertical numbered timeline
+       4. Applications     — 5-card industry use-case grid
+       5. Benefits Grid    — 4-card value-propositions
+       6. Closing CTA      — dark gradient call-to-action
+     ============================================================= -->
+
+<div class="mapping-page">
+
+    <!-- ===== SECTION 1: HERO ===== -->
+    <!-- Full-viewport hero with dark gradient, floating particles, and impact stats -->
+    <header class="mapping-hero">
+        <!-- Background radial gradients for depth -->
+        <div class="hero-bg-gradient"></div>
+        <!-- Floating ambient particles (purely decorative) -->
+        <div class="hero-particles">
+            <div class="particle p1"></div>
+            <div class="particle p2"></div>
+            <div class="particle p3"></div>
+        </div>
+        <div class="container hero-inner">
+            <!-- Service identifier badge -->
+            <div class="hero-badge">🗺️ MAPPING & SURVEY</div>
+            <h1>LiDAR Mapping &<br>Precision Surveying</h1>
+            <p class="hero-lead">
+                High-precision drone technology delivering accurate geospatial data with unmatched
+                speed and efficiency — 3D terrain models, DEMs, and orthomosaics with sub-centimeter accuracy.
+            </p>
+            <!-- Primary and secondary CTAs -->
+            <div class="hero-actions">
+                <a routerLink="/contact" class="btn-primary">Request a Survey <span>→</span></a>
+                <a href="#how-it-works" class="btn-ghost">See How It Works</a>
+            </div>
+            <!-- Key impact statistics displayed in the hero -->
+            <div class="hero-stats">
+                <div class="hstat">
+                    <span class="hstat-val">70%</span>
+                    <span class="hstat-label">Faster Surveys</span>
+                </div>
+                <div class="hstat">
+                    <span class="hstat-val">&lt;1cm</span>
+                    <span class="hstat-label">Accuracy</span>
+                </div>
+                <div class="hstat">
+                    <span class="hstat-val">3D</span>
+                    <span class="hstat-label">Point Clouds</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== SECTION 2: INTRO ===== -->
+    <!-- Two-column introduction with floating data cards overlaying the image -->
+    <section class="intro-section">
+        <div class="container intro-grid">
+            <!-- Left column: descriptive text -->
+            <div class="intro-text">
+                <span class="section-label">AI-Powered Surveying</span>
+                <h2>Advancing Mapping with AI-Powered Drone Technology</h2>
+                <p>
+                    At JRNEX, we are revolutionizing mapping and surveying with AI-integrated drone technology,
+                    delivering high-precision geospatial data with unmatched speed and accuracy. Traditional surveying
+                    methods are often time-consuming, labor-intensive, and prone to errors, but our autonomous drones
+                    equipped with LiDAR, multispectral imaging, and AI-powered analytics provide real-time,
+                    high-resolution spatial data.
+                </p>
+                <p>
+                    Integrated with GIS platforms, JRNEX is setting new standards in precision mapping across
+                    industries like infrastructure, agriculture, urban planning, and disaster management in India.
+                </p>
+            </div>
+            <!-- Right column: image with floating data cards -->
+            <div class="intro-visual">
+                <img src="assets/hero_01.jpg" alt="Drone surveying terrain" class="intro-img">
+                <!-- Floating data card: Point Cloud density -->
+                <div class="float-card fc-1">
+                    <span class="fc-icon">📡</span>
+                    <div>
+                        <strong>Point Cloud</strong>
+                        <span class="fc-val">42M pts</span>
+                    </div>
+                </div>
+                <!-- Floating data card: Survey speed -->
+                <div class="float-card fc-2">
+                    <span class="fc-icon">⚡</span>
+                    <div>
+                        <strong>Survey Speed</strong>
+                        <span class="fc-val">3x Faster</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 3: HOW IT WORKS (PROCESS TIMELINE) ===== -->
+    <!-- Vertical numbered timeline with step cards. Data comes from `steps` array in component. -->
+    <section id="how-it-works" class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Process</span>
+                <h2>How Our AI-Driven Drone Surveys Work</h2>
+            </div>
+            <div class="process-timeline">
+                <!-- Each step rendered with a numbered connector and detail card -->
+                <div class="process-step" *ngFor="let step of steps; let i = index" [class.alt]="i % 2 !== 0">
+                    <!-- Vertical connector: numbered circle + joining line -->
+                    <div class="step-connector">
+                        <div class="step-num">{{ step.num }}</div>
+                        <div class="step-line" *ngIf="i < steps.length - 1"></div>
+                    </div>
+                    <!-- Step content card with icon, title, and description -->
+                    <div class="step-card">
+                        <div class="step-icon">{{ step.icon }}</div>
+                        <h3>{{ step.title }}</h3>
+                        <p>{{ step.desc }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 4: APPLICATIONS ===== -->
+    <!-- 5-card grid showcasing industry applications. Data from `applications` array. -->
+    <section class="applications-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Use Cases</span>
+                <h2>Applications of AI-Powered Drone Mapping</h2>
+            </div>
+            <div class="applications-grid">
+                <div class="app-card" *ngFor="let app of applications">
+                    <div class="app-icon">{{ app.icon }}</div>
+                    <h3>{{ app.title }}</h3>
+                    <p>{{ app.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 5: WHY CHOOSE JRNEX ===== -->
+    <!-- 4-card benefits grid. Data from `benefits` array. -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Why Choose Us</span>
+                <h2>Why Choose JRNEX for Drone-Based Surveying?</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card" *ngFor="let b of benefits">
+                    <div class="benefit-icon">{{ b.icon }}</div>
+                    <h3>{{ b.title }}</h3>
+                    <p>{{ b.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 6: CLOSING CTA ===== -->
+    <!-- Dark gradient call-to-action encouraging visitors to get in touch -->
+    <section class="closing-cta">
+        <div class="container cta-inner">
+            <!-- Decorative radial glow behind the CTA text -->
+            <div class="cta-glow"></div>
+            <h2>Mapping the Future</h2>
+            <p>
+                At JRNEX, we are not just mapping land — we are mapping the future. Our AI-powered
+                drone solutions are setting new standards in surveying, making it smarter, faster, and
+                more reliable for businesses, governments, and industries across India.
+            </p>
+            <div class="cta-actions">
+                <a routerLink="/contact" class="btn-primary btn-lg">Get a Survey Quote →</a>
+            </div>
+        </div>
+    </section>
+
+</div>

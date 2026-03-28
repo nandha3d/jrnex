@@ -1,0 +1,84 @@
+<div class="solution-page">
+    <!-- Hero -->
+    <header class="solution-hero">
+        <div class="container hero-content">
+            <span class="section-label">Skill Development</span>
+            <h1>Build Expertise in the Technologies of Tomorrow</h1>
+            <p class="hero-lead">Industry-aligned programs in Drones, Robotics, and AI for students and professionals.
+            </p>
+        </div>
+        <div class="hero-bg-overlay"></div>
+    </header>
+
+    <!-- Lab Setup Section -->
+    <section class="intro-section">
+        <div class="container thin-content">
+            <h2 class="text-accent">Robotics Lab Setup for Institutions</h2>
+            <p>JRNEX partners with schools and colleges to establish state-of-the-art robotics and drone labs. We
+                provide everything from hardware and curriculum design to faculty training and ongoing mentorship.</p>
+            <div class="mt-5 d-flex gap-3 justify-content-center">
+                <a routerLink="/contact" class="btn-primary">Set Up a Lab</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Grid -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-heading text-center">Core Learning Verticals</h2>
+            <div class="features-grid">
+                <div class="feature-item card" *ngFor="let skill of skills">
+                    <div class="feature-icon">{{ skill.icon }}</div>
+                    <h3>{{ skill.title }}</h3>
+                    <p>{{ skill.desc }}</p>
+                    <a routerLink="/education" class="btn-outline mt-auto w-fit">Explore Courses</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Provide -->
+    <section class="dark-section">
+        <div class="container">
+            <h2 class="section-heading text-center h1">What We Provide</h2>
+            <div class="row g-4 mt-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-transparent border-light p-4 text-center h-100">
+                        <h4 class="text-white mb-3">Hardware Labs</h4>
+                        <p class="text-white-50 small">Fully equipped drone and robotics lab setups at your institution.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-transparent border-light p-4 text-center h-100">
+                        <h4 class="text-white mb-3">Curriculum</h4>
+                        <p class="text-white-50 small">Structured training material aligned with current industry
+                            demands.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-transparent border-light p-4 text-center h-100">
+                        <h4 class="text-white mb-3">Mentorship</h4>
+                        <p class="text-white-50 small">Ongoing support from industry experts and technical faculty.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-transparent border-light p-4 text-center h-100">
+                        <h4 class="text-white mb-3">Certification</h4>
+                        <p class="text-white-50 small">Industry-recognized certification upon program completion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bottom-cta section-padding">
+        <div class="container shadow-card glass-card text-center">
+            <h2 class="h1">Empower Your Students for the Future</h2>
+            <p class="muted">Contact us to discuss how we can bring advanced technology training to your institution.
+            </p>
+            <a routerLink="/contact" class="btn-primary btn-lg">Partner With Us →</a>
+        </div>
+    </section>
+</div>

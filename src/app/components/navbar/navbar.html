@@ -1,0 +1,46 @@
+<nav class="navbar">
+    <div class="container navbar-container">
+        <a routerLink="/" class="logo">
+            <div class="logo-container">
+                <img src="assets/Logo.png" alt="JRNEX Logo" class="nav-logo">
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a routerLink="/about" routerLinkActive="active">ABOUT US</a></li>
+            <li class="dropdown">
+                <a href="#" (click)="$event.preventDefault()">SERVICE</a>
+                <ul class="dropdown-menu">
+                    <li *ngFor="let service of services">
+                        <a [routerLink]="service.link" routerLinkActive="active">{{ service.name }}</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a routerLink="/rpto" routerLinkActive="active">RPTO<span class="badge">TBD</span></a></li>
+            <li><a routerLink="/#education" routerLinkActive="active">EDUCATION</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active">CONTACT US</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a routerLink="/contact" class="btn-register">REGISTER</a>
+            <a routerLink="/contact" class="btn-login">LOGIN</a>
+        </div>
+
+        <button class="mobile-menu-toggle" (click)="isMobileMenuOpen = !isMobileMenuOpen">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" *ngIf="isMobileMenuOpen">
+        <ul>
+            <li><a routerLink="/about" (click)="isMobileMenuOpen = false">ABOUT US</a></li>
+            <li *ngFor="let service of services">
+                <a [routerLink]="service.link" (click)="isMobileMenuOpen = false">{{ service.name }}</a>
+            </li>
+            <li><a routerLink="/rpto" (click)="isMobileMenuOpen = false">RPTO</a></li>
+            <li><a routerLink="/#education" (click)="isMobileMenuOpen = false">EDUCATION</a></li>
+            <li><a routerLink="/contact" (click)="isMobileMenuOpen = false">CONTACT US</a></li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,329 @@
+<div class="home">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+
+        <!-- Crossfade Background Layers -->
+        <div *ngFor="let slide of heroSlides; let i = index" class="hero-bg" [class.active]="i === activeSlide"
+            [style.backgroundImage]="slide.image ? slide.gradient + ', url(assets/' + slide.image + ')' : slide.gradient">
+        </div>
+
+        <!-- Animated background shapes -->
+        <div class="hero-shapes">
+            <div class="shape shape-ring"></div>
+            <div class="shape shape-dot dot-1"></div>
+            <div class="shape shape-dot dot-2"></div>
+            <div class="shape shape-dot dot-3"></div>
+            <div class="shape shape-grid"></div>
+        </div>
+
+        <!-- Drone + Inspection HUD (clipped to windmill zone) -->
+        <div class="hud-clip-zone" *ngIf="activeSlide === 0">
+            <div class="drone-hud-overlay" #hudVisual>
+                <!-- Compact Reticle -->
+                <div class="reticle">
+                    <div class="reticle-ring"></div>
+                    <div class="reticle-cross-h"></div>
+                    <div class="reticle-cross-v"></div>
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                </div>
+                <!-- Telemetry Panel -->
+                <div class="telem-panel">
+                    <div class="telem-row"><span class="telem-key">ALT</span><span class="telem-val">{{ hudAlt
+                            }}m</span></div>
+                    <div class="telem-row"><span class="telem-key">SPD</span><span class="telem-val">{{ hudSpd
+                            }}m/s</span></div>
+                    <div class="telem-row"><span class="telem-key">TEMP</span><span class="telem-val">{{ hudTemp
+                            }}°C</span></div>
+                    <div class="telem-row"><span class="telem-key">DEFECTS</span><span class="telem-val status-ok">{{
+                            hudDefects }}</span></div>
+                </div>
+                <!-- Scan indicator -->
+                <div class="scan-label">⊙ SCANNING...</div>
+            </div>
+        </div>
+
+        <!-- Agriculture HUD (clipped to field zone) -->
+        <div class="hud-clip-zone agri-hud" *ngIf="activeSlide === 1">
+            <div class="drone-hud-overlay" #agriHudVisual>
+                <!-- Grid Reticle for crop scanning -->
+                <div class="reticle agri-reticle">
+                    <div class="agri-grid-h"></div>
+                    <div class="agri-grid-v"></div>
+                    <div class="corner tl agri"></div>
+                    <div class="corner tr agri"></div>
+                    <div class="corner bl agri"></div>
+                    <div class="corner br agri"></div>
+                    <div class="ndvi-ring"></div>
+                </div>
+                <!-- Agriculture Telemetry -->
+                <div class="telem-panel agri-panel">
+                    <div class="telem-row"><span class="telem-key">NDVI</span><span class="telem-val agri-val">{{
+                            hudNdvi }}</span></div>
+                    <div class="telem-row"><span class="telem-key">MOIST</span><span class="telem-val agri-val">{{
+                            hudMoisture }}%</span></div>
+                    <div class="telem-row"><span class="telem-key">HEALTH</span><span class="telem-val"
+                            [class.status-good]="hudHealth === 'GOOD'" [class.status-fair]="hudHealth === 'FAIR'"
+                            [class.status-low]="hudHealth === 'LOW'">{{ hudHealth }}</span></div>
+                    <div class="telem-row"><span class="telem-key">AREA</span><span class="telem-val agri-val">{{
+                            hudCoverage }}ha</span></div>
+                </div>
+                <div class="scan-label agri-scan">⊙ CROP ANALYSIS</div>
+            </div>
+        </div>
+
+        <!-- Education HUD (clipped to learning zone) -->
+        <div class="hud-clip-zone edu-hud" *ngIf="activeSlide === 2">
+            <div class="drone-hud-overlay" #eduHudVisual>
+                <!-- Training Reticle -->
+                <div class="reticle edu-reticle">
+                    <div class="exp-ring"></div>
+                    <div class="corner tl edu"></div>
+                    <div class="corner tr edu"></div>
+                    <div class="corner bl edu"></div>
+                    <div class="corner br edu"></div>
+                    <div class="edu-aim"></div>
+                </div>
+                <!-- Training Telemetry -->
+                <div class="telem-panel edu-panel">
+                    <div class="telem-row"><span class="telem-key">MODULE</span><span class="telem-val edu-val">{{
+                            hudModule }}</span></div>
+                    <div class="telem-row"><span class="telem-key">STUDENTS</span><span class="telem-val edu-val">{{
+                            hudStudents }}</span></div>
+                    <div class="telem-row"><span class="telem-key">EXP</span><span class="telem-val edu-val">{{ hudExp
+                            }}</span></div>
+                    <div class="prog-container">
+                        <div class="prog-label">PROGRESS</div>
+                        <div class="prog-track">
+                            <div class="prog-fill" [style.width.%]="hudProgress"></div>
+                        </div>
+                        <div class="prog-val">{{ hudProgress }}%</div>
+                    </div>
+                </div>
+                <div class="scan-label edu-scan">⊙ TRAINING ACTIVE</div>
+            </div>
+        </div>
+
+        <!-- Drone Visual (follows cursor, always visible) -->
+        <div class="hero-visual" #droneVisual>
+            <div class="drone-visual">
+                <div class="drone-body">
+                    <div class="drone-center">
+                        <span>✦</span>
+                    </div>
+                    <div class="drone-arm arm-tl"></div>
+                    <div class="drone-arm arm-tr"></div>
+                    <div class="drone-arm arm-bl"></div>
+                    <div class="drone-arm arm-br"></div>
+                    <div class="drone-rotor r1">
+                        <div class="propeller"></div>
+                    </div>
+                    <div class="drone-rotor r2">
+                        <div class="propeller"></div>
+                    </div>
+                    <div class="drone-rotor r3">
+                        <div class="propeller"></div>
+                    </div>
+                    <div class="drone-rotor r4">
+                        <div class="propeller"></div>
+                    </div>
+                </div>
+                <div class="drone-beam"></div>
+                <div class="scan-circle c1"></div>
+                <div class="scan-circle c2"></div>
+            </div>
+            <div class="data-chips">
+                <div class="chip chip-1">
+                    <span class="chip-dot"></span>AI Active
+                </div>
+                <div class="chip chip-2">
+                    <span class="chip-dot red"></span>GPS
+                </div>
+            </div>
+        </div>
+
+        <!-- Content — pinned right -->
+        <div class="hero-right-content">
+            <div class="hero-content">
+                <span class="hero-label">{{ heroSlides[activeSlide].label }}</span>
+                <h1 class="hero-headline">{{ heroSlides[activeSlide].headline }}</h1>
+                <p class="hero-sub">{{ heroSlides[activeSlide].subtext }}</p>
+                <div class="hero-actions">
+                    <a [routerLink]="heroSlides[activeSlide].cta1Link" class="btn-primary">
+                        {{ heroSlides[activeSlide].cta1 }} <span>→</span>
+                    </a>
+                    <a [routerLink]="heroSlides[activeSlide].cta2Link" class="btn-secondary">
+                        {{ heroSlides[activeSlide].cta2 }}
+                    </a>
+                </div>
+                <!-- Slide indicators -->
+                <div class="slide-controls">
+                    <button class="slide-arrow" (click)="prevSlide()">‹</button>
+                    <div class="slide-dots">
+                        <button *ngFor="let s of heroSlides; let i = index" class="dot"
+                            [class.active]="i === activeSlide" (click)="goToSlide(i)"></button>
+                    </div>
+                    <button class="slide-arrow" (click)="nextSlide()">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS BAR ===== -->
+    <div class="stats-bar">
+        <div class="container stats-inner">
+            <div class="stat-item" *ngFor="let s of stats">
+                <span class="stat-icon">{{ s.icon }}</span>
+                <span class="stat-value">{{ s.value }}</span>
+                <span class="stat-label">{{ s.label }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="section-label">Our Services</span>
+                    <h2 class="section-heading">End-to-End Drone &<br>Technology Solutions</h2>
+                </div>
+                <p class="section-intro">From AI-powered agriculture to certified pilot training — JRNEX delivers
+                    full-spectrum drone intelligence across industries.</p>
+            </div>
+
+            <div class="services-grid">
+                <a class="service-card" *ngFor="let s of services" [routerLink]="s.link">
+                    <div class="card-top">
+                        <div class="svc-icon" [style.background]="s.iconBg + '1A'">
+                            <span [style.color]="s.iconBg">{{ s.icon }}</span>
+                        </div>
+                        <span class="svc-tag" [style.color]="s.iconBg" [style.background]="s.iconBg + '18'">
+                            {{ s.tag }}
+                        </span>
+                    </div>
+
+                    <!-- Placeholder illustration -->
+                    <div class="card-visual"
+                        [style.background]="'linear-gradient(135deg, ' + s.iconBg + '18, ' + s.iconBg + '08)'">
+                        <div class="visual-placeholder">
+                            <span class="vis-icon">{{ s.icon }}</span>
+                            <div class="vis-bars">
+                                <div class="bar b1" [style.background]="s.iconBg"></div>
+                                <div class="bar b2" [style.background]="s.iconBg"></div>
+                                <div class="bar b3" [style.background]="s.iconBg"></div>
+                                <div class="bar b4" [style.background]="s.iconBg"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>{{ s.title }}</h3>
+                    <p>{{ s.desc }}</p>
+
+                    <div class="card-link" [style.color]="s.iconBg">
+                        Explore More <span>→</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+<!-- ===== ABOUT STRIP ===== -->
+<section class="about-strip">
+    <div class="container about-grid">
+        <!-- Left: Text -->
+        <div class="about-text">
+            <span class="section-label">Who We Are</span>
+            <h2 class="section-heading">A Full-Spectrum<br>Technology Company</h2>
+            <p>JRNEX delivers actionable intelligence through advanced aerial data, AI-driven analytics, IoT
+                integration, and cloud-enabled solutions. We design customized drone platforms combining proprietary
+                hardware, intelligent software, and data science expertise.</p>
+            <p>Our technology empowers businesses to optimize operations, enhance productivity, reduce costs, and
+                drive sustainable growth across industries.</p>
+            <a routerLink="/about" class="btn-outline-dark">Discover Our Story →</a>
+        </div>
+
+        <!-- Right: Why Us cards -->
+        <div class="why-us-grid">
+            <div class="why-card" *ngFor="let w of whyUs; let i = index">
+                <div class="why-num">{{ (i + 1).toString().padStart(2,'0') }}</div>
+                <h4>{{ w.title }}</h4>
+                <p>{{ w.desc }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process-section">
+    <div class="container">
+        <div class="process-header">
+            <span class="section-label">How We Work</span>
+            <h2 class="section-heading">From Survey to Intelligence<br>in 5 Steps</h2>
+        </div>
+        <div class="process-track">
+            <div class="process-step" *ngFor="let step of [
+          {num:'01', icon:'🚁', title:'Deploy Drone', desc:'Autonomous flight with AI-guided mission planning.'},
+          {num:'02', icon:'📡', title:'Data Capture', desc:'Multi-sensor collection — RGB, thermal, LiDAR.'},
+          {num:'03', icon:'🧠', title:'AI Processing', desc:'Machine learning models analyze imagery in real time.'},
+          {num:'04', icon:'📊', title:'Insights Generated', desc:'Actionable reports, maps, and 3D models delivered.'},
+          {num:'05', icon:'✅', title:'Impact Delivered', desc:'Clients act on data to reduce costs and boost yields.'}
+        ]">
+                <div class="step-circle">
+                    <span class="step-num">{{ step.num }}</span>
+                    <span class="step-icon">{{ step.icon }}</span>
+                </div>
+                <div class="step-connector" *ngIf="step.num !== '05'"></div>
+                <div class="step-info">
+                    <h4>{{ step.title }}</h4>
+                    <p>{{ step.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TESTIMONIAL ===== -->
+<section class="testimonial-section">
+    <div class="container">
+        <div class="testimonial-card">
+            <div class="testi-bg-art">
+                <div class="art-circle c1"></div>
+                <div class="art-circle c2"></div>
+            </div>
+            <div class="quote-mark">"</div>
+            <blockquote>{{ testimonial.quote }}</blockquote>
+            <div class="testi-author">
+                <div class="author-avatar">{{ testimonial.initials }}</div>
+                <div>
+                    <strong>{{ testimonial.name }}</strong>
+                    <span>{{ testimonial.role }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner">
+    <div class="container cta-inner">
+        <div class="cta-text">
+            <h2>Ready to Elevate Your Operations?</h2>
+            <p>Talk to our drone experts and get a customized solution for your industry.</p>
+        </div>
+        <div class="cta-actions">
+            <a routerLink="/contact" class="btn-primary">Get in Touch →</a>
+            <a routerLink="/solutions/agriculture" class="btn-outline-white">View Solutions</a>
+        </div>
+    </div>
+</section>
+
+</div>

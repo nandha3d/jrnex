@@ -1,0 +1,719 @@
+/* ==============================
+   MAPPING & SURVEY SERVICE PAGE
+   ──────────────────────────────
+   Premium styles for /solutions/mapping.
+   Uses a blue accent (#3b82f6) to visually differentiate
+   from the green accent used on the Agriculture page.
+============================== */
+
+/* ─── Variables ─── */
+$map-accent: #3b82f6;
+$map-accent-light: rgba(59, 130, 246, 0.12);
+$map-dark: #0a1628;
+$map-surface: #0d1b2a;
+
+/* ================================================================
+   SECTION 1: HERO
+   Full-viewport gradient hero with floating ambient particles.
+================================================================ */
+.mapping-hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0a1628 0%, #112240 40%, #0d2a4a 100%);
+
+    /* Radial gradient overlays for visual depth */
+    .hero-bg-gradient {
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse at 70% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+            radial-gradient(ellipse at 20% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+        z-index: 0;
+    }
+
+    /* Purely decorative floating circles */
+    .hero-particles {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: $map-accent;
+            opacity: 0.12;
+            animation: float-particle 8s ease-in-out infinite;
+
+            &.p1 {
+                width: 300px;
+                height: 300px;
+                top: -50px;
+                right: -80px;
+                animation-delay: 0s;
+            }
+
+            &.p2 {
+                width: 200px;
+                height: 200px;
+                bottom: 10%;
+                left: 5%;
+                animation-delay: 2s;
+            }
+
+            &.p3 {
+                width: 150px;
+                height: 150px;
+                top: 40%;
+                right: 20%;
+                animation-delay: 4s;
+            }
+        }
+    }
+
+    /* Main hero content container */
+    .hero-inner {
+        position: relative;
+        z-index: 2;
+        padding: 120px 0 80px;
+        text-align: center;
+    }
+
+    /* "MAPPING & SURVEY" badge pill */
+    .hero-badge {
+        display: inline-block;
+        background: $map-accent-light;
+        color: $map-accent;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        padding: 8px 20px;
+        border-radius: 30px;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        margin-bottom: 28px;
+    }
+
+    h1 {
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        color: #fff;
+        line-height: 1.15;
+        margin-bottom: 24px;
+        font-weight: 800;
+    }
+
+    .hero-lead {
+        max-width: 680px;
+        margin: 0 auto 36px;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* CTA button row */
+    .hero-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 56px;
+    }
+
+    /* Primary filled CTA button */
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: $map-accent;
+        color: #fff;
+        padding: 14px 32px;
+        border-radius: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s;
+
+        &:hover {
+            background: darken($map-accent, 8%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(59, 130, 246, 0.3);
+        }
+    }
+
+    /* Secondary ghost CTA button */
+    .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 14px 32px;
+        border-radius: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+
+        &:hover {
+            border-color: $map-accent;
+            color: $map-accent;
+            background: rgba(59, 130, 246, 0.06);
+        }
+    }
+
+    /* Impact statistics row in the hero */
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        flex-wrap: wrap;
+
+        .hstat {
+            text-align: center;
+
+            .hstat-val {
+                display: block;
+                font-size: 2.4rem;
+                font-weight: 800;
+                color: $map-accent;
+                line-height: 1;
+                margin-bottom: 6px;
+            }
+
+            .hstat-label {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.5);
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+            }
+        }
+    }
+}
+
+/* Ambient floating animation for hero particles */
+@keyframes float-particle {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-30px) scale(1.05);
+    }
+}
+
+/* ================================================================
+   SECTION 2: INTRO
+   Two-column layout with image + floating data cards.
+================================================================ */
+.intro-section {
+    padding: 100px 0;
+    background: #fff;
+
+    .intro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+
+    /* Reusable section label with leading dash */
+    .section-label {
+        display: inline-block;
+        color: $map-accent;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 12px;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 2px;
+            background: $map-accent;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    }
+
+    h2 {
+        font-size: 2.2rem;
+        color: #1a1a2e;
+        margin-bottom: 24px;
+        line-height: 1.2;
+    }
+
+    p {
+        color: #555;
+        line-height: 1.8;
+        font-size: 1.05rem;
+        margin-bottom: 16px;
+    }
+
+    /* Right column: image container with floating cards */
+    .intro-visual {
+        position: relative;
+
+        .intro-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Floating data cards that hover above the image */
+        .float-card {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            padding: 14px 20px;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            animation: float-card 4s ease-in-out infinite;
+
+            .fc-icon {
+                font-size: 1.5rem;
+            }
+
+            strong {
+                display: block;
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                color: #999;
+            }
+
+            .fc-val {
+                display: block;
+                font-size: 1.2rem;
+                font-weight: 800;
+                color: $map-accent;
+            }
+
+            /* Top-right floating card position */
+            &.fc-1 {
+                top: 20px;
+                right: -20px;
+                animation-delay: 0s;
+
+                @media (max-width: 768px) {
+                    right: 0;
+                }
+            }
+
+            /* Bottom-left floating card position */
+            &.fc-2 {
+                bottom: 30px;
+                left: -20px;
+                animation-delay: 2s;
+
+                @media (max-width: 768px) {
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+/* Gentle vertical float for the data cards */
+@keyframes float-card {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ================================================================
+   SECTION 3: PROCESS TIMELINE (HOW IT WORKS)
+   Vertical numbered timeline with step cards.
+================================================================ */
+.process-section {
+    padding: 100px 0;
+    background: #f8fafb;
+
+    /* Centered section header (reused across multiple sections) */
+    .section-header {
+        text-align: center;
+        margin-bottom: 64px;
+
+        .section-label {
+            display: inline-block;
+            color: $map-accent;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 30px;
+                height: 2px;
+                background: $map-accent;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            line-height: 1.2;
+        }
+    }
+
+    /* Timeline container */
+    .process-timeline {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Individual step: connector (numbered circle + line) + content card */
+    .process-step {
+        display: flex;
+        gap: 24px;
+
+        /* Left column: numbered connector */
+        .step-connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+
+            /* Numbered circle */
+            .step-num {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: $map-accent;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 800;
+                font-size: 0.9rem;
+                position: relative;
+                z-index: 2;
+                box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+            }
+
+            /* Vertical connecting line between steps */
+            .step-line {
+                width: 2px;
+                flex: 1;
+                background: linear-gradient(180deg, $map-accent, rgba(59, 130, 246, 0.15));
+                margin: 4px 0;
+            }
+        }
+
+        /* Right column: step detail card */
+        .step-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eef2f6;
+            flex: 1;
+            transition: all 0.3s;
+
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                border-color: rgba(59, 130, 246, 0.3);
+            }
+
+            .step-icon {
+                font-size: 1.8rem;
+                margin-bottom: 12px;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+                color: #1a1a2e;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+
+            p {
+                color: #666;
+                line-height: 1.7;
+                font-size: 0.95rem;
+                margin: 0;
+            }
+        }
+    }
+}
+
+/* ================================================================
+   SECTION 4: APPLICATIONS
+   5-card grid showing industry use-cases.
+================================================================ */
+.applications-section {
+    padding: 100px 0;
+    background: #fff;
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 56px;
+
+        .section-label {
+            display: inline-block;
+            color: $map-accent;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 30px;
+                height: 2px;
+                background: $map-accent;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            line-height: 1.2;
+        }
+    }
+
+    /* Responsive 5-column → 2-column → 1-column grid */
+    .applications-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 24px;
+
+        @media (max-width: 1200px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 500px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Individual application card */
+    .app-card {
+        background: #f8fafb;
+        border-radius: 20px;
+        padding: 32px 24px;
+        text-align: center;
+        border: 1px solid #eef2f6;
+        transition: all 0.35s;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .app-icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        p {
+            color: #777;
+            line-height: 1.5;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+    }
+}
+
+/* ================================================================
+   SECTION 5: BENEFITS
+   4-card grid with hover-lift effect.
+================================================================ */
+.benefits-section {
+    padding: 100px 0;
+    background: #f8fafb;
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 56px;
+
+        .section-label {
+            display: inline-block;
+            color: $map-accent;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 30px;
+                height: 2px;
+                background: $map-accent;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            line-height: 1.2;
+        }
+    }
+
+    /* 4-column responsive grid */
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Benefit card with hover lift */
+    .benefit-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 36px 28px;
+        text-align: center;
+        border: 1px solid #eef2f6;
+        transition: all 0.35s;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        p {
+            color: #777;
+            line-height: 1.6;
+            font-size: 0.92rem;
+            margin: 0;
+        }
+    }
+}
+
+/* ================================================================
+   SECTION 6: CLOSING CTA
+   Dark gradient with decorative glow and a prominent CTA button.
+================================================================ */
+.closing-cta {
+    padding: 100px 0;
+    background: linear-gradient(160deg, #0a1628 0%, #112240 40%, #0d2a4a 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    /* Decorative blurred glow circle */
+    .cta-glow {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.1);
+        filter: blur(100px);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .cta-inner {
+        position: relative;
+        z-index: 2;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        color: #fff;
+        margin-bottom: 20px;
+        font-weight: 800;
+    }
+
+    p {
+        max-width: 700px;
+        margin: 0 auto 36px;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
+
+    /* Large primary CTA button */
+    .btn-lg {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: $map-accent;
+        color: #fff;
+        padding: 16px 40px;
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        text-decoration: none;
+        transition: all 0.3s;
+
+        &:hover {
+            background: darken($map-accent, 8%);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 32px rgba(59, 130, 246, 0.35);
+        }
+    }
+}
+
+/* ─── Global Container Override ─── */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}

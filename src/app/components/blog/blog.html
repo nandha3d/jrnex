@@ -1,0 +1,50 @@
+<div class="solution-page">
+    <!-- Hero -->
+    <header class="solution-hero">
+        <div class="container hero-content">
+            <span class="section-label">JRNEX Blog</span>
+            <h1>Insights & Innovations</h1>
+            <p class="hero-lead">Exploring the latest trends in drone technology, aerial intelligence, and industrial
+                automation.</p>
+        </div>
+        <div class="hero-bg-overlay"></div>
+    </header>
+
+    <!-- Blog Grid -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item card p-0" *ngFor="let post of posts">
+                    <div class="post-img" [style.backgroundImage]="'url(' + post.img + ')'"
+                        style="height: 200px; background-size: cover; background-position: center;"></div>
+                    <div class="p-4 d-flex flex-column h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-accent-light text-accent rounded-pill px-3 py-2 small">{{
+                                post.category }}</span>
+                            <span class="text-muted small">{{ post.date }}</span>
+                        </div>
+                        <h3 class="h4 mb-3">{{ post.title }}</h3>
+                        <p class="muted small mb-4">{{ post.excerpt }}</p>
+                        <a routerLink="/blog/title-slug"
+                            class="btn-text mt-auto text-accent fw-bold text-decoration-none">Read Full Story →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="intro-section bg-surface-alt">
+        <div class="container thin-content text-center">
+            <h2 class="text-primary">Stay Ahead of the Curve</h2>
+            <p>Subscribe to our newsletter for bi-weekly updates on drone technology and industry insights.</p>
+            <div class="mt-5 mx-auto" style="max-width: 500px;">
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Enter your email"
+                        style="border-radius: 12px 0 0 12px;">
+                    <button class="btn-primary" type="button" style="border-radius: 0 12px 12px 0;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

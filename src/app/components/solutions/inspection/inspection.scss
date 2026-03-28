@@ -1,0 +1,727 @@
+/* ==============================
+   INSPECTION SERVICES PAGE
+   ──────────────────────────────
+   Premium styles for /solutions/inspection.
+   Uses the JRNEX brand blue (#3b82f6) for accent consistency
+   across all service pages.
+============================== */
+
+/* ─── Variables (same as mapping page for brand consistency) ─── */
+$insp-accent: #3b82f6;
+$insp-accent-light: rgba(59, 130, 246, 0.12);
+$insp-dark: #0a1628;
+
+/* ================================================================
+   SECTION 1: HERO
+   Full-viewport dark gradient hero with floating ambient particles.
+   Includes a badge pill, H1, descriptive lead text, dual CTAs,
+   and three large impact stat counters.
+================================================================ */
+.insp-hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0a1628 0%, #112240 40%, #0d2a4a 100%);
+
+    /* Radial gradient overlays for visual depth */
+    .hero-bg-gradient {
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse at 70% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+            radial-gradient(ellipse at 20% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+        z-index: 0;
+    }
+
+    /* Purely decorative floating circles (animated) */
+    .hero-particles {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: $insp-accent;
+            opacity: 0.12;
+            animation: float-particle 8s ease-in-out infinite;
+
+            /* Three different sizes and positions for organic feel */
+            &.p1 {
+                width: 300px;
+                height: 300px;
+                top: -50px;
+                right: -80px;
+                animation-delay: 0s;
+            }
+
+            &.p2 {
+                width: 200px;
+                height: 200px;
+                bottom: 10%;
+                left: 5%;
+                animation-delay: 2s;
+            }
+
+            &.p3 {
+                width: 150px;
+                height: 150px;
+                top: 40%;
+                right: 20%;
+                animation-delay: 4s;
+            }
+        }
+    }
+
+    /* Main hero content wrapper */
+    .hero-inner {
+        position: relative;
+        z-index: 2;
+        padding: 120px 0 80px;
+        text-align: center;
+    }
+
+    /* Accent-colored category badge pill */
+    .hero-badge {
+        display: inline-block;
+        background: $insp-accent-light;
+        color: $insp-accent;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        padding: 8px 20px;
+        border-radius: 30px;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        margin-bottom: 28px;
+    }
+
+    /* Page headline */
+    h1 {
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        color: #fff;
+        line-height: 1.15;
+        margin-bottom: 24px;
+        font-weight: 800;
+    }
+
+    /* Subheadline / lead paragraph */
+    .hero-lead {
+        max-width: 680px;
+        margin: 0 auto 36px;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* CTA button row (primary + ghost) */
+    .hero-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 56px;
+    }
+
+    /* Primary filled CTA button */
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: $insp-accent;
+        color: #fff;
+        padding: 14px 32px;
+        border-radius: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s;
+
+        &:hover {
+            background: darken($insp-accent, 8%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(59, 130, 246, 0.3);
+        }
+    }
+
+    /* Secondary outline CTA button */
+    .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 14px 32px;
+        border-radius: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+
+        &:hover {
+            border-color: $insp-accent;
+            color: $insp-accent;
+            background: rgba(59, 130, 246, 0.06);
+        }
+    }
+
+    /* Impact statistics row */
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        flex-wrap: wrap;
+
+        .hstat {
+            text-align: center;
+
+            /* Large number / value */
+            .hstat-val {
+                display: block;
+                font-size: 2.4rem;
+                font-weight: 800;
+                color: $insp-accent;
+                line-height: 1;
+                margin-bottom: 6px;
+            }
+
+            /* Small label below the value */
+            .hstat-label {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.5);
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+            }
+        }
+    }
+}
+
+/* Ambient floating animation for hero particles */
+@keyframes float-particle {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-30px) scale(1.05);
+    }
+}
+
+/* ================================================================
+   SECTION 2: INTRO
+   Two-column layout: left text, right image with floating cards.
+================================================================ */
+.intro-section {
+    padding: 100px 0;
+    background: #fff;
+
+    /* Two-column responsive grid */
+    .intro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+
+    /* Reusable section label with leading accent dash */
+    .section-label {
+        display: inline-block;
+        color: $insp-accent;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 12px;
+
+        /* Small leading line before the label text */
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 2px;
+            background: $insp-accent;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    }
+
+    h2 {
+        font-size: 2.2rem;
+        color: #1a1a2e;
+        margin-bottom: 24px;
+        line-height: 1.2;
+    }
+
+    p {
+        color: #555;
+        line-height: 1.8;
+        font-size: 1.05rem;
+        margin-bottom: 16px;
+    }
+
+    /* Right column: image with floating stat cards */
+    .intro-visual {
+        position: relative;
+
+        /* Main image with rounded corners and shadow */
+        .intro-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Floating data cards positioned on the image */
+        .float-card {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            padding: 14px 20px;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            animation: float-card 4s ease-in-out infinite;
+
+            .fc-icon {
+                font-size: 1.5rem;
+            }
+
+            strong {
+                display: block;
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                color: #999;
+            }
+
+            .fc-val {
+                display: block;
+                font-size: 1.2rem;
+                font-weight: 800;
+                color: $insp-accent;
+            }
+
+            /* Top-right card position */
+            &.fc-1 {
+                top: 20px;
+                right: -20px;
+                animation-delay: 0s;
+
+                @media (max-width: 768px) {
+                    right: 0;
+                }
+            }
+
+            /* Bottom-left card position */
+            &.fc-2 {
+                bottom: 30px;
+                left: -20px;
+                animation-delay: 2s;
+
+                @media (max-width: 768px) {
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+/* Gentle vertical float animation for floating data cards */
+@keyframes float-card {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ================================================================
+   SECTION 3: PROCESS TIMELINE (HOW IT WORKS)
+   Vertical numbered timeline with step content cards.
+   Each step has a numbered circle connector and a hover-lift card.
+================================================================ */
+.process-section {
+    padding: 100px 0;
+    background: #f8fafb;
+
+    /* Centered section header used in this and subsequent sections */
+    .section-header {
+        text-align: center;
+        margin-bottom: 64px;
+
+        .section-label {
+            display: inline-block;
+            color: $insp-accent;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 30px;
+                height: 2px;
+                background: $insp-accent;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            line-height: 1.2;
+        }
+    }
+
+    /* Timeline container — vertically stacked steps */
+    .process-timeline {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Individual step row: connector + content card */
+    .process-step {
+        display: flex;
+        gap: 24px;
+
+        /* Left column: numbered circle + vertical line */
+        .step-connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+
+            /* Numbered circle node */
+            .step-num {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: $insp-accent;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 800;
+                font-size: 0.9rem;
+                position: relative;
+                z-index: 2;
+                box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+            }
+
+            /* Connecting line between steps (not rendered on last step) */
+            .step-line {
+                width: 2px;
+                flex: 1;
+                background: linear-gradient(180deg, $insp-accent, rgba(59, 130, 246, 0.15));
+                margin: 4px 0;
+            }
+        }
+
+        /* Right column: step detail card */
+        .step-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eef2f6;
+            flex: 1;
+            transition: all 0.3s;
+
+            /* Hover: lift card and highlight border */
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                border-color: rgba(59, 130, 246, 0.3);
+            }
+
+            .step-icon {
+                font-size: 1.8rem;
+                margin-bottom: 12px;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+                color: #1a1a2e;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+
+            p {
+                color: #666;
+                line-height: 1.7;
+                font-size: 0.95rem;
+                margin: 0;
+            }
+        }
+    }
+}
+
+/* ================================================================
+   SECTION 4: APPLICATIONS
+   4-card grid showing energy-sector use-cases.
+   Responsive: 4 → 2 → 1 columns.
+================================================================ */
+.applications-section {
+    padding: 100px 0;
+    background: #fff;
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 56px;
+
+        .section-label {
+            display: inline-block;
+            color: $insp-accent;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 30px;
+                height: 2px;
+                background: $insp-accent;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            line-height: 1.2;
+        }
+    }
+
+    /* Responsive 4-column grid */
+    .applications-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Application card with icon, title, description */
+    .app-card {
+        background: #f8fafb;
+        border-radius: 20px;
+        padding: 32px 24px;
+        text-align: center;
+        border: 1px solid #eef2f6;
+        transition: all 0.35s;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .app-icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        p {
+            color: #777;
+            line-height: 1.5;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+    }
+}
+
+/* ================================================================
+   SECTION 5: BENEFITS
+   4-card grid with hover-lift effect.
+================================================================ */
+.benefits-section {
+    padding: 100px 0;
+    background: #f8fafb;
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 56px;
+
+        .section-label {
+            display: inline-block;
+            color: $insp-accent;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 30px;
+                height: 2px;
+                background: $insp-accent;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            line-height: 1.2;
+        }
+    }
+
+    /* 4-column responsive grid */
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Benefit card with hover lift and border highlight */
+    .benefit-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 36px 28px;
+        text-align: center;
+        border: 1px solid #eef2f6;
+        transition: all 0.35s;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        p {
+            color: #777;
+            line-height: 1.6;
+            font-size: 0.92rem;
+            margin: 0;
+        }
+    }
+}
+
+/* ================================================================
+   SECTION 6: CLOSING CTA
+   Dark gradient with decorative glow and a prominent CTA button.
+================================================================ */
+.closing-cta {
+    padding: 100px 0;
+    background: linear-gradient(160deg, #0a1628 0%, #112240 40%, #0d2a4a 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    /* Decorative blurred glow circle behind text */
+    .cta-glow {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.1);
+        filter: blur(100px);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .cta-inner {
+        position: relative;
+        z-index: 2;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        color: #fff;
+        margin-bottom: 20px;
+        font-weight: 800;
+    }
+
+    p {
+        max-width: 700px;
+        margin: 0 auto 36px;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
+
+    /* Large primary CTA button */
+    .btn-lg {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: $insp-accent;
+        color: #fff;
+        padding: 16px 40px;
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        text-decoration: none;
+        transition: all 0.3s;
+
+        &:hover {
+            background: darken($insp-accent, 8%);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 32px rgba(59, 130, 246, 0.35);
+        }
+    }
+}
+
+/* ─── Global Container Override ─── */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
