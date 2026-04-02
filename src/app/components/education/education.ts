@@ -17,17 +17,17 @@ export class Education {
   programs = [
     {
       title: 'College Workshops',
-      desc: 'Drone Building, RC Aircraft Building, and Piloting courses designed for hands-on skill mastery.',
+      desc: 'Comprehensive Drone Building Course, RC Aircraft Building Course, and RC Aircraft Piloting Course – interactive sessions designed for students to master hands-on skills and practical applications.',
       img: 'assets/hero-education.png'
     },
     {
       title: 'College Internships',
-      desc: 'Immersive drone projects with real-world industry exposure, mentorship, and professional development.',
+      desc: 'Immersive hands-on drone projects with real-world industry exposure, mentorship, and professional development opportunities to build career-ready expertise.',
       img: 'assets/hero-education.png'
     },
     {
       title: 'Weekend Batches',
-      desc: 'Junior Aeromodeller programs and Summer Classes — beginner-friendly and open to all ages.',
+      desc: 'Engaging Junior Aeromodeller program and Summer Classes – beginner-friendly, flexible schedules open to all ages and skill levels for accessible learning.',
       img: 'assets/hero-education.png'
     }
   ];
@@ -40,7 +40,8 @@ export class Education {
       location: ['', Validators.required],
       program: ['', Validators.required],
       institution: [''],
-      message: ['']
+      experience: [''],
+      message: ['', Validators.required]
     });
   }
 

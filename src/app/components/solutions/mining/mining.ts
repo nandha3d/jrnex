@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-mining',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './mining.html',
   styleUrl: './mining.scss',
 })

@@ -8,10 +8,12 @@ import { Rpto } from './components/rpto/rpto';
 import { Blog } from './components/blog/blog';
 import { BlogPost } from './components/blog-post/blog-post';
 import { Contact } from './components/contact/contact';
+import { Education } from './components/education/education';
 
 export const routes: Routes = [
     { path: '', component: Home },
     { path: 'about', component: About },
+    { path: 'education', component: Education },
     { path: 'solutions/agriculture', component: Agriculture },
     { path: 'solutions/mapping', component: Mapping },
     { path: 'solutions/inspection', component: Inspection },

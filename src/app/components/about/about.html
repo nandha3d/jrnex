@@ -11,15 +11,19 @@
     </header>
 
     <!-- Mission & Vision -->
-    <section class="mission-vision">
-        <div class="container grid-2">
-            <div class="card mission">
-                <span class="card-label">Our Mission</span>
-                <h3>{{ mission }}</h3>
-            </div>
-            <div class="card vision">
-                <span class="card-label">Our Vision</span>
-                <h3>{{ vision }}</h3>
+    <section class="mission-vision-section">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card mission-card">
+                    <div class="mv-icon">🎯</div>
+                    <span class="mv-label">Our Mission</span>
+                    <p>{{ mission }}</p>
+                </div>
+                <div class="mv-card vision-card">
+                    <div class="mv-icon">🚀</div>
+                    <span class="mv-label">Our Vision</span>
+                    <p>{{ vision }}</p>
+                </div>
             </div>
         </div>
     </section>
@@ -59,17 +63,26 @@
     </section>
 
     <!-- Team -->
-    <section class="team">
+    <section class="team-section">
         <div class="container">
-            <span class="section-label">The Experts</span>
-            <h2 class="section-heading">Meet Our Leadership</h2>
+            <div class="section-header text-center">
+                <span class="section-label">The Experts</span>
+                <h2 class="section-heading">Meet Our Leadership</h2>
+                <p class="section-subtitle">Experienced professionals driving innovation in drone technology</p>
+            </div>
             <div class="team-grid">
                 <div class="team-card" *ngFor="let member of team">
-                    <div class="member-image"></div>
-                    <div class="member-info">
-                        <h3>{{ member.name }}</h3>
-                        <span class="member-role">{{ member.role }}</span>
-                        <p>{{ member.bio }}</p>
+                    <div class="team-card-inner">
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <span class="photo-icon">👤</span>
+                            </div>
+                        </div>
+                        <div class="member-details">
+                            <h3>{{ member.name }}</h3>
+                            <span class="member-role">{{ member.role }}</span>
+                            <p class="member-bio">{{ member.bio }}</p>
+                        </div>
                     </div>
                 </div>
             </div>

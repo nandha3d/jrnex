@@ -2,14 +2,14 @@
    INSPECTION SERVICES PAGE
    ──────────────────────────────
    Premium styles for /solutions/inspection.
-   Uses the JRNEX brand blue (#3b82f6) for accent consistency
+   Uses the JRNEX brand theme accent color for consistency
    across all service pages.
 ============================== */
 
 /* ─── Variables (same as mapping page for brand consistency) ─── */
-$insp-accent: #3b82f6;
-$insp-accent-light: rgba(59, 130, 246, 0.12);
-$insp-dark: #0a1628;
+$insp-accent: var(--color-accent);
+$insp-accent-light: var(--color-accent-light);
+$insp-dark: var(--color-primary);
 
 /* ================================================================
    SECTION 1: HERO
@@ -23,15 +23,15 @@ $insp-dark: #0a1628;
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(160deg, #0a1628 0%, #112240 40%, #0d2a4a 100%);
+    background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-mid) 40%, rgba(13, 27, 42, 0.8) 100%);
 
     /* Radial gradient overlays for visual depth */
     .hero-bg-gradient {
         position: absolute;
         inset: 0;
         background:
-            radial-gradient(ellipse at 70% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-            radial-gradient(ellipse at 20% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+            radial-gradient(ellipse at 70% 20%, var(--color-accent-glow) 0%, transparent 50%),
+            radial-gradient(ellipse at 20% 80%, rgba(56, 188, 163, 0.08) 0%, transparent 40%);
         z-index: 0;
     }
 
@@ -44,7 +44,7 @@ $insp-dark: #0a1628;
         .particle {
             position: absolute;
             border-radius: 50%;
-            background: $insp-accent;
+            background: var(--color-accent);
             opacity: 0.12;
             animation: float-particle 8s ease-in-out infinite;
 
@@ -86,14 +86,14 @@ $insp-dark: #0a1628;
     /* Accent-colored category badge pill */
     .hero-badge {
         display: inline-block;
-        background: $insp-accent-light;
-        color: $insp-accent;
+        background: var(--color-accent-light);
+        color: var(--color-accent);
         font-size: 0.8rem;
         font-weight: 700;
         letter-spacing: 0.15em;
         padding: 8px 20px;
         border-radius: 30px;
-        border: 1px solid rgba(59, 130, 246, 0.2);
+        border: 1px solid rgba(56, 188, 163, 0.2);
         margin-bottom: 28px;
     }
 
@@ -138,9 +138,9 @@ $insp-dark: #0a1628;
         transition: all 0.3s;
 
         &:hover {
-            background: darken($insp-accent, 8%);
+            background: var(--color-accent-dark);
             transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 12px 28px var(--color-accent-glow);
         }
     }
 
@@ -158,9 +158,9 @@ $insp-dark: #0a1628;
         transition: all 0.3s;
 
         &:hover {
-            border-color: $insp-accent;
-            color: $insp-accent;
-            background: rgba(59, 130, 246, 0.06);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            background: var(--color-accent-light);
         }
     }
 
@@ -352,7 +352,7 @@ $insp-dark: #0a1628;
 ================================================================ */
 .process-section {
     padding: 100px 0;
-    background: #f8fafb;
+    background: var(--color-surface-alt);
 
     /* Centered section header used in this and subsequent sections */
     .section-header {
@@ -420,14 +420,14 @@ $insp-dark: #0a1628;
                 font-size: 0.9rem;
                 position: relative;
                 z-index: 2;
-                box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+                box-shadow: 0 4px 16px var(--color-accent-glow);
             }
 
             /* Connecting line between steps (not rendered on last step) */
             .step-line {
                 width: 2px;
                 flex: 1;
-                background: linear-gradient(180deg, $insp-accent, rgba(59, 130, 246, 0.15));
+                background: linear-gradient(180deg, var(--color-accent), var(--color-accent-light));
                 margin: 4px 0;
             }
         }
@@ -439,7 +439,7 @@ $insp-dark: #0a1628;
             padding: 28px 32px;
             margin-bottom: 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            border: 1px solid #eef2f6;
+            border: 1px solid var(--color-border);
             flex: 1;
             transition: all 0.3s;
 
@@ -447,7 +447,7 @@ $insp-dark: #0a1628;
             &:hover {
                 transform: translateY(-4px);
                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-                border-color: rgba(59, 130, 246, 0.3);
+                border-color: var(--color-accent-glow);
             }
 
             .step-icon {
@@ -529,17 +529,17 @@ $insp-dark: #0a1628;
 
     /* Application card with icon, title, description */
     .app-card {
-        background: #f8fafb;
+        background: var(--color-surface-alt);
         border-radius: 20px;
         padding: 32px 24px;
         text-align: center;
-        border: 1px solid #eef2f6;
+        border: 1px solid var(--color-border);
         transition: all 0.35s;
 
         &:hover {
             transform: translateY(-6px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-            border-color: rgba(59, 130, 246, 0.3);
+            border-color: var(--color-accent-glow);
         }
 
         .app-icon {
@@ -569,7 +569,7 @@ $insp-dark: #0a1628;
 ================================================================ */
 .benefits-section {
     padding: 100px 0;
-    background: #f8fafb;
+    background: var(--color-surface-alt);
 
     .section-header {
         text-align: center;
@@ -623,13 +623,13 @@ $insp-dark: #0a1628;
         border-radius: 20px;
         padding: 36px 28px;
         text-align: center;
-        border: 1px solid #eef2f6;
+        border: 1px solid var(--color-border);
         transition: all 0.35s;
 
         &:hover {
             transform: translateY(-6px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-            border-color: rgba(59, 130, 246, 0.3);
+            border-color: var(--color-accent-glow);
         }
 
         .benefit-icon {
@@ -659,7 +659,7 @@ $insp-dark: #0a1628;
 ================================================================ */
 .closing-cta {
     padding: 100px 0;
-    background: linear-gradient(160deg, #0a1628 0%, #112240 40%, #0d2a4a 100%);
+    background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-mid) 40%, rgba(13, 27, 42, 0.8) 100%);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -670,7 +670,7 @@ $insp-dark: #0a1628;
         width: 400px;
         height: 400px;
         border-radius: 50%;
-        background: rgba(59, 130, 246, 0.1);
+        background: var(--color-accent-glow);
         filter: blur(100px);
         top: 50%;
         left: 50%;
@@ -714,7 +714,7 @@ $insp-dark: #0a1628;
         &:hover {
             background: darken($insp-accent, 8%);
             transform: translateY(-3px);
-            box-shadow: 0 14px 32px rgba(59, 130, 246, 0.35);
+            box-shadow: 0 14px 32px var(--color-accent-glow);
         }
     }
 }

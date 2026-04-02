@@ -1,4 +1,4 @@
-<div class="solution-page">
+<div class="solution-page education-page-wrapper">
     <!-- Hero -->
     <header class="solution-hero">
         <div class="container hero-content">
@@ -11,97 +11,240 @@
     </header>
 
     <!-- Programs Grid -->
-    <section class="features">
+    <section class="programs-section">
         <div class="container">
-            <h2 class="section-heading text-center">Our Training Programs</h2>
+            <div class="section-header text-center">
+                <span class="section-label">Professional Training</span>
+                <h2 class="section-heading">Our Training Programs</h2>
+                <p class="section-subtitle">Comprehensive courses designed to equip you with industry-ready skills</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card" *ngFor="let program of programs">
+                    <div class="program-image"
+                        [style.backgroundImage]="'url(' + program.img + ')'">
+                    </div>
+                    <div class="program-content">
+                        <h3>{{ program.title }}</h3>
+                        <p>{{ program.desc }}</p>
+                        <a href="#apply" class="btn-primary">Explore Program →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Features -->
+    <section class="training-features-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Why Choose JRNEX</span>
+                <h2 class="section-heading">What Makes Our Training Unique</h2>
+            </div>
             <div class="features-grid">
-                <div class="feature-item card" *ngFor="let program of programs">
-                    <div class="use-case-img mb-4 rounded-lg overflow-hidden"
-                        [style.backgroundImage]="'url(' + program.img + ')'"
-                        style="height: 180px; background-size: cover; background-position: center; border-radius: 12px;">
-                    </div>
-                    <h3>{{ program.title }}</h3>
-                    <p>{{ program.desc }}</p>
-                    <a href="#apply" class="btn-outline mt-auto w-fit">Learn More →</a>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Industry-Aligned Curriculum</h3>
+                    <p>Develop skills that directly apply to professional drone operations and aerial data analysis in real-world scenarios.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Expert Mentorship</h3>
+                    <p>Learn from aerospace engineers, experienced drone pilots, and AI specialists with 15+ years in the industry.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Hands-On Projects</h3>
+                    <p>Build and fly actual drones, work on real mapping data, and develop AI algorithms for autonomous systems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📜</div>
+                    <h3>Recognized Certifications</h3>
+                    <p>Earn DGCA-approved drone pilot licenses and industry-recognized certificates that boost your career prospects.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Career Opportunities</h3>
+                    <p>Access internship placements, job shadowing, and direct connections with leading companies in drone technology.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Standards</h3>
+                    <p>Training aligned with international best practices, giving you skills recognized worldwide in the aerospace industry.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Application Form -->
-    <section id="apply" class="intro-section">
+    <!-- Structured Training Levels -->
+    <section class="training-levels-section">
         <div class="container">
-            <div class="shadow-card p-5 p-md-5 mx-auto"
-                style="max-width: 800px; background: white; border-radius: 24px; box-shadow: var(--shadow-lg);">
-                <div class="text-center mb-5">
-                    <h2 class="text-primary h1">Apply for a Program</h2>
-                    <p class="muted">Fill out the form below and our team will get back to you with details.</p>
+            <div class="section-header text-center">
+                <span class="section-label">Training Pathway</span>
+                <h2 class="section-heading">Structured Learning Tracks</h2>
+                <p class="section-subtitle">Choose your path based on experience and goals</p>
+            </div>
+            <div class="levels-grid">
+                <div class="level-card level-1">
+                    <div class="level-badge">Beginner</div>
+                    <h3>Fundamentals Track</h3>
+                    <ul class="level-items">
+                        <li>✓ Drone assembly & maintenance</li>
+                        <li>✓ Aerodynamics basics</li>
+                        <li>✓ Flight operations</li>
+                        <li>✓ Safety & regulations</li>
+                        <li>✓ Basic photography</li>
+                    </ul>
+                    <p class="level-duration">Duration: 4-6 weeks</p>
                 </div>
-
-                <form [formGroup]="applyForm" (ngSubmit)="onSubmit()" class="row g-4">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-bold small text-uppercase">Full Name *</label>
-                        <input type="text" formControlName="fullName" class="form-control" placeholder="John Doe">
-                        <div *ngIf="submitted && applyForm.get('fullName')?.errors" class="text-danger small mt-1">Name
-                            is required</div>
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-bold small text-uppercase">Email Address *</label>
-                        <input type="email" formControlName="email" class="form-control" placeholder="john@example.com">
-                        <div *ngIf="submitted && applyForm.get('email')?.errors" class="text-danger small mt-1">Valid
-                            email is required</div>
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-bold small text-uppercase">Phone Number *</label>
-                        <input type="tel" formControlName="phone" class="form-control" placeholder="+91 00000 00000">
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-bold small text-uppercase">City / Location *</label>
-                        <input type="text" formControlName="location" class="form-control"
-                            placeholder="Enter your city">
-                    </div>
-
-                    <div class="col-md-12 mb-3">
-                        <label class="form-label fw-bold small text-uppercase">Program of Interest *</label>
-                        <select formControlName="program" class="form-select">
-                            <option value="">Select a program</option>
-                            <option value="workshop">College Workshop</option>
-                            <option value="internship">College Internship</option>
-                            <option value="weekend">Weekend Batch</option>
-                            <option value="online">Online Course</option>
-                            <option value="rpto">RPTO Training</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-12 mb-3">
-                        <label class="form-label fw-bold small text-uppercase">Institution Name</label>
-                        <input type="text" formControlName="institution" class="form-control"
-                            placeholder="College or Company name">
-                    </div>
-
-                    <div class="col-md-12 mb-4">
-                        <label class="form-label fw-bold small text-uppercase">Message / Query</label>
-                        <textarea formControlName="message" class="form-control" rows="4"
-                            placeholder="Tell us about your requirements..."></textarea>
-                    </div>
-
-                    <div class="col-12 text-center">
-                        <button type="submit" class="btn-primary btn-lg w-100 py-3">Submit Application →</button>
-                    </div>
-                </form>
+                <div class="level-card level-2">
+                    <div class="level-badge">Intermediate</div>
+                    <h3>Advanced Operations</h3>
+                    <ul class="level-items">
+                        <li>✓ Autonomous flight</li>
+                        <li>✓ Thermal imaging</li>
+                        <li>✓ Mapping & surveying</li>
+                        <li>✓ Data processing</li>
+                        <li>✓ Troubleshooting</li>
+                    </ul>
+                    <p class="level-duration">Duration: 8-10 weeks</p>
+                </div>
+                <div class="level-card level-3">
+                    <div class="level-badge">Professional</div>
+                    <h3>Specialist Programs</h3>
+                    <ul class="level-items">
+                        <li>✓ AI & machine learning</li>
+                        <li>✓ Advanced inspections</li>
+                        <li>✓ Custom applications</li>
+                        <li>✓ Project management</li>
+                        <li>✓ DGCA RPC license</li>
+                    </ul>
+                    <p class="level-duration">Duration: 12-16 weeks</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="bottom-cta section-padding">
-        <div class="container shadow-card glass-card text-center bg-primary text-white p-5 rounded-xl">
-            <h2 class="text-white h1">Ready to Fly?</h2>
-            <p class="text-white-50">Explore our industry-aligned drone and robotics programs today.</p>
-            <a routerLink="/contact" class="btn-secondary btn-lg">Contact Us For Details →</a>
+    <!-- Application Form Card -->
+    <section id="apply" class="application-section">
+        <div class="container">
+            <div class="form-card-wrapper">
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <div class="form-header-content">
+                            <span class="form-badge">Ready to Apply?</span>
+                            <h2>Join Our Next Batch</h2>
+                            <p>Fill out the form below and we'll review your application within 24 hours. Our team will contact you to discuss the best program for your goals.</p>
+                        </div>
+                        <div class="form-header-graphic">📋</div>
+                    </div>
+
+                    <form [formGroup]="applyForm" (ngSubmit)="onSubmit()" class="application-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Full Name *</label>
+                                <input type="text" formControlName="fullName" class="form-input" placeholder="John Doe">
+                                <div *ngIf="submitted && applyForm.get('fullName')?.errors" class="form-error">Name
+                                    is required</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" formControlName="email" class="form-input" placeholder="john@example.com">
+                                <div *ngIf="submitted && applyForm.get('email')?.errors" class="form-error">Valid
+                                    email is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Phone Number *</label>
+                                <input type="tel" formControlName="phone" class="form-input" placeholder="+91 00000 00000">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">City / Location *</label>
+                                <input type="text" formControlName="location" class="form-input"
+                                    placeholder="Enter your city">
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label">Program of Interest *</label>
+                            <select formControlName="program" class="form-input">
+                                <option value="">Select a program</option>
+                                <option value="workshop">College Workshop</option>
+                                <option value="internship">College Internship</option>
+                                <option value="weekend">Weekend Batch</option>
+                            </select>
+                            <div *ngIf="submitted && applyForm.get('program')?.errors" class="form-error">Please select a program</div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label">Institution Name / Organization</label>
+                            <input type="text" formControlName="institution" class="form-input"
+                                placeholder="College or Company name">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label">Experience Level</label>
+                            <select formControlName="experience" class="form-input">
+                                <option value="">Select your experience level</option>
+                                <option value="beginner">Beginner - New to drones</option>
+                                <option value="intermediate">Intermediate - Some experience</option>
+                                <option value="advanced">Advanced - Professional experience</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label">Message / Details *</label>
+                            <textarea formControlName="message" class="form-input form-textarea" rows="5"
+                                placeholder="Tell us about your goals and requirements..."></textarea>
+                            <div *ngIf="submitted && applyForm.get('message')?.errors" class="form-error">Message is required</div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary btn-lg">Submit Application →</button>
+                            <p class="form-note">💡 Tip: Early applicants get priority enrollment and potential discounts!</p>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="form-sidebar">
+                    <div class="sidebar-box">
+                        <h4>Quick Information</h4>
+                        <ul>
+                            <li><strong>Batch Size:</strong> Limited to 15-20 students</li>
+                            <li><strong>Schedule:</strong> Weekends & summers</li>
+                            <li><strong>Duration:</strong> 4-16 weeks</li>
+                            <li><strong>Hands-on:</strong> 70% practice, 30% theory</li>
+                            <li><strong>Certification:</strong> Industry-recognized</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-box">
+                        <h4>What's Included</h4>
+                        <ul>
+                            <li>✓ Drone hardware access</li>
+                            <li>✓ Flight simulator</li>
+                            <li>✓ Lab equipment</li>
+                            <li>✓ Course materials</li>
+                            <li>✓ Mentorship</li>
+                            <li>✓ Certificate</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="education-cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Drone Education Journey?</h2>
+                <p>Get professional training from industry experts with hands-on experience and career guidance.</p>
+                <a href="#apply" class="btn-secondary btn-lg">Apply Now →</a>
+            </div>
         </div>
     </section>
 </div>
