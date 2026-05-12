@@ -35,17 +35,17 @@ export class Mining {
     {
       title: 'Open-Pit Mining',
       desc: 'Terrain modeling and slope stability analysis for safe mining operations.',
-      img: 'assets/hero-windmill.png'
+      img: 'assets/Mining_operations.avif'
     },
     {
       title: 'Stockpile Management',
       desc: 'Accurate volume estimation of coal, minerals, and aggregates.',
-      img: 'assets/hero-windmill.png'
+      img: 'assets/Mining_operations.avif'
     },
     {
       title: 'Environmental Assessment',
       desc: 'Monitoring mining impact and managing land reclamation projects.',
-      img: 'assets/hero-windmill.png'
+      img: 'assets/Mining_operations.avif'
     }
   ];
 }

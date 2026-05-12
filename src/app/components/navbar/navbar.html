@@ -2,14 +2,14 @@
     <div class="container navbar-container">
         <a routerLink="/" class="logo">
             <div class="logo-container">
-                <img src="assets/Logo.png" alt="JRNEX Logo" class="nav-logo">
+                <img src="assets/Logo.avif" alt="JRNEX Logo" class="nav-logo" width="184" height="48">
             </div>
         </a>
 
         <ul class="nav-links">
             <li><a routerLink="/about" routerLinkActive="active">ABOUT US</a></li>
             <li class="dropdown">
-                <a href="#" (click)="$event.preventDefault()">SERVICES</a>
+                <a routerLink="." (click)="$event.preventDefault()">SERVICES</a>
                 <ul class="dropdown-menu">
                     <li *ngFor="let service of services">
                         <a [routerLink]="service.link" routerLinkActive="active">{{ service.name }}</a>
@@ -18,6 +18,7 @@
             </li>
             <li><a routerLink="/rpto" routerLinkActive="active">RPTO<span class="badge">TBD</span></a></li>
             <li><a routerLink="/education" routerLinkActive="active">EDUCATION</a></li>
+            <li><a routerLink="/steam-education" routerLinkActive="active">STEAM EDUCATION</a></li>
             <li><a routerLink="/contact" routerLinkActive="active">CONTACT US</a></li>
         </ul>
 
@@ -26,7 +27,7 @@
             <a routerLink="/contact" class="btn-login">LOGIN</a>
         </div>
 
-        <button class="mobile-menu-toggle" (click)="isMobileMenuOpen = !isMobileMenuOpen">
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" (click)="isMobileMenuOpen = !isMobileMenuOpen">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -40,6 +41,7 @@
             </li>
             <li><a routerLink="/rpto" (click)="isMobileMenuOpen = false">RPTO</a></li>
             <li><a routerLink="/education" (click)="isMobileMenuOpen = false">EDUCATION</a></li>
+            <li><a routerLink="/steam-education" (click)="isMobileMenuOpen = false">STEAM EDUCATION</a></li>
             <li><a routerLink="/contact" (click)="isMobileMenuOpen = false">CONTACT US</a></li>
         </ul>
     </div>

@@ -1,87 +1,87 @@
-<div class="solution-page contact-page-wrapper">
-    <!-- Hero -->
-    <header class="solution-hero">
-        <div class="container hero-content">
-            <span class="section-label">Contact Us</span>
-            <h1>Let's Build Something Together</h1>
-            <p class="hero-lead">Whether it's an enterprise solution or a skill development program, JRNEX is ready to
-                help.</p>
+<div class="contact-page-v2">
+    <!-- Immersive Header -->
+    <header class="contact-hero-v2">
+        <div class="container hero-container">
+            <div class="hero-text-content">
+                <span class="badge">Contact Us</span>
+                <h1>Let's Start a <span class="gradient-text">Conversation</span></h1>
+                <p>Have a question about our drone solutions or want to discuss a potential partnership? Our team is here to help you navigate the future of robotics.</p>
+            </div>
         </div>
-        <div class="hero-bg-overlay"></div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
     </header>
 
-    <!-- Contact Content -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-layout">
-                <!-- Contact Info Sidebar -->
-                <aside class="contact-sidebar">
-                    <div class="info-cards">
-                        <div class="info-card" *ngFor="let info of contactInfo">
-                            <div class="info-icon">{{ info.icon }}</div>
-                            <h3>{{ info.title }}</h3>
-                            <p>{{ info.details }}</p>
+    <div class="container main-content-wrapper">
+        <div class="contact-grid-v2">
+            <!-- Left Side: Interactive Map & Info -->
+            <div class="contact-info-panel">
+                <div class="glass-info-card">
+                    <div class="info-items">
+                        <div class="info-item-v2" *ngFor="let info of contactInfo">
+                            <div class="icon-wrapper">{{ info.icon }}</div>
+                            <div class="item-content">
+                                <h4>{{ info.title }}</h4>
+                                <p [innerHTML]="info.details.replace('\n', '<br>')"></p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="social-box">
-                        <h4>Follow Our Journey</h4>
-                        <p>Stay updated with the latest in UAV technology and robotics on our social channels.</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link" title="LinkedIn">
-                                <span>in</span>
-                            </a>
-                            <a href="#" class="social-link" title="Instagram">
-                                <span>📷</span>
-                            </a>
-                            <a href="#" class="social-link" title="Twitter">
-                                <span>𝕏</span>
-                            </a>
+                    <div class="social-connect">
+                        <h5>Connect Socially</h5>
+                        <div class="social-pills">
+                            <a href="https://linkedin.com/company/jrnex" target="_blank" class="social-pill">LinkedIn</a>
+                            <a href="https://instagram.com/jrnex" target="_blank" class="social-pill">Instagram</a>
+                            <a href="https://twitter.com/jrnex" target="_blank" class="social-pill">Twitter</a>
                         </div>
                     </div>
-                </aside>
+                </div>
 
-                <!-- Contact Form -->
-                <main class="contact-form-wrapper">
-                    <div class="form-header">
-                        <h2>Send us a Message</h2>
-                        <p>Fill in your details and we'll get back to you shortly.</p>
+                <div class="map-container-v2">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.6646185696054!2d72.5899467!3d23.109369999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e83c8e2c906b7%3A0x83d217542c09823f!2sJenex%20Technovation%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1777636484688!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Right Side: Clean Form -->
+            <div class="contact-form-panel">
+                <div class="form-card-v2">
+                    <div class="form-intro">
+                        <h2>Send a Message</h2>
+                        <p>We typically respond within 24 hours.</p>
                     </div>
 
-                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Full Name *</label>
-                                <input type="text" formControlName="fullName" class="form-input" placeholder="John Doe">
-                                <div *ngIf="submitted && contactForm.get('fullName')?.errors" class="form-error">Name is required</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Email Address *</label>
-                                <input type="email" formControlName="email" class="form-input"
-                                    placeholder="john@example.com">
-                                <div *ngIf="submitted && contactForm.get('email')?.errors" class="form-error">
-                                    Valid email is required</div>
-                            </div>
+                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="modern-form">
+                        <div class="input-group-v2">
+                            <input type="text" formControlName="fullName" required placeholder=" ">
+                            <label>Full Name</label>
+                            <div class="input-line"></div>
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label">Phone Number *</label>
-                                <input type="tel" formControlName="phone" class="form-input"
-                                    placeholder="+91 00000 00000">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Company / Institution</label>
-                                <input type="text" formControlName="company" class="form-input" placeholder="Optional">
-                            </div>
+                        <div class="input-group-v2">
+                            <input type="email" formControlName="email" required placeholder=" ">
+                            <label>Email Address</label>
+                            <div class="input-line"></div>
                         </div>
 
-                        <div class="form-group full-width">
-                            <label class="form-label">Service Interest *</label>
-                            <select formControlName="service" class="form-input">
-                                <option value="">Select a service</option>
+                        <div class="input-group-v2">
+                            <input type="tel" formControlName="phone" required placeholder=" ">
+                            <label>Phone Number</label>
+                            <div class="input-line"></div>
+                        </div>
+
+                        <div class="input-group-v2 dropdown-group">
+                            <select formControlName="service" required>
+                                <option value="" disabled selected hidden></option>
                                 <option value="agriculture">Digital Agriculture</option>
                                 <option value="mapping">Mapping & Survey</option>
                                 <option value="inspection">Industrial Inspection</option>
@@ -89,35 +89,26 @@
                                 <option value="education">Education & Internships</option>
                                 <option value="lab">Robotics Lab Setup</option>
                             </select>
-                            <div *ngIf="submitted && contactForm.get('service')?.errors" class="form-error">
-                                Please select a service</div>
+                            <label>Service Interest</label>
+                            <div class="input-line"></div>
+                            <div class="dropdown-arrow"></div>
                         </div>
 
-                        <div class="form-group full-width">
-                            <label class="form-label">Your Message *</label>
-                            <textarea formControlName="message" class="form-input form-textarea" rows="6"
-                                placeholder="How can we help you?"></textarea>
-                            <div *ngIf="submitted && contactForm.get('message')?.errors" class="form-error">
-                                Message is required</div>
+                        <div class="input-group-v2 textarea-group">
+                            <textarea formControlName="message" required placeholder=" " rows="4"></textarea>
+                            <label>Your Message</label>
+                            <div class="input-line"></div>
                         </div>
 
-                        <div class="form-submit">
-                            <button type="submit" class="btn-primary btn-lg">Send Message →</button>
-                        </div>
+                        <button type="submit" class="submit-btn-v2" [disabled]="!contactForm.valid">
+                            <span>Send Message</span>
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                            </svg>
+                        </button>
                     </form>
-                </main>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="map-section">
-        <div class="map-placeholder">
-            <div class="map-content">
-                <span class="map-icon">📍</span>
-                <p>Google Map Integration Placeholder</p>
-                <small>Bangalore, India</small>
-            </div>
-        </div>
-    </section>
+    </div>
 </div>

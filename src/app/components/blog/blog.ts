@@ -16,21 +16,21 @@ export class Blog {
       date: 'March 15, 2026',
       excerpt: 'How machine learning is revolutionizing crop monitoring and precision farming.',
       category: 'Technology',
-      img: 'assets/hero-drone-windmill.png'
+      img: 'assets/digital-agriculture-drone.avif'
     },
     {
       title: 'Safeguarding Energy Infrastructure',
       date: 'February 28, 2026',
       excerpt: 'A deep dive into autonomous drone inspections for wind turbines and solar farms.',
       category: 'Case Study',
-      img: 'assets/hero-windmill.png'
+      img: 'assets/drone_inspecting_windmill.avif'
     },
     {
       title: 'Drone Pilot Fundamentals',
       date: 'February 10, 2026',
       excerpt: 'Everything you need to know about starting your career as a certified UAV pilot.',
       category: 'Education',
-      img: 'assets/hero-education.png'
+      img: 'assets/hero-education.avif'
     }
   ];
 }

@@ -59,7 +59,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       subtext: 'Autonomous drone inspections for wind turbines, solar farms, and power infrastructure — reducing downtime by 50%.',
       cta1: 'Book Service', cta1Link: '/solutions/inspection',
       cta2: 'Learn More', cta2Link: '/solutions/inspection',
-      image: 'hero_01.jpg',
+      image: 'hero_01.avif',
       gradient: 'linear-gradient(to left, rgba(13, 27, 42, 0.8) 0%, rgba(13, 27, 42, 0.2) 50%, transparent 100%)',
     },
     {
@@ -68,7 +68,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       subtext: 'NDVI mapping, pesticide spraying, and crop health monitoring — transforming Indian agriculture with real-time aerial intelligence.',
       cta1: 'See Solutions', cta1Link: '/solutions/agriculture',
       cta2: 'Learn More', cta2Link: '/solutions/agriculture',
-      image: 'hero_02.jpg',
+      image: 'hero_02.avif',
       gradient: 'linear-gradient(to left, rgba(13, 42, 26, 0.85) 0%, rgba(13, 42, 26, 0.2) 50%, transparent 100%)',
     },
     {
@@ -77,18 +77,18 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       subtext: 'Industry-aligned drone education, robotics training, and AI programs for schools, colleges, and aspiring professionals.',
       cta1: 'Explore Programs', cta1Link: '/education',
       cta2: 'Learn More', cta2Link: '/education',
-      image: 'hero_03.png',
+      image: 'robotics.avif',
       gradient: 'linear-gradient(to left, rgba(26, 13, 42, 0.85) 0%, rgba(46, 26, 74, 0.2) 50%, transparent 100%)',
     },
   ];
 
   services = [
-    { icon: '🛰️', iconBg: '#2EC4B6', title: 'Digital Agriculture', desc: 'AI-powered NDVI mapping, pesticide spraying, and crop health monitoring for precision farming.', link: '/solutions/agriculture', tag: 'Agriculture' },
-    { icon: '🗺️', iconBg: '#0EA5E9', title: 'Mapping & Survey', desc: 'Sub-centimeter LiDAR accuracy with 70% faster field surveys — 3D terrain models and orthomosaics.', link: '/solutions/mapping', tag: 'Surveying' },
-    { icon: '🔍', iconBg: '#F59E0B', title: 'Inspection Services', desc: 'Thermal imaging and AI defect detection for windmills, solar panels, and energy infrastructure.', link: '/solutions/inspection', tag: 'Energy' },
-    { icon: '⛏️', iconBg: '#8B5CF6', title: 'Mining Operations', desc: 'Volumetric stockpile analysis and real-time site monitoring for mining efficiency and safety.', link: '/solutions/mining', tag: 'Mining' },
-    { icon: '🤖', iconBg: '#EF4444', title: 'Skill Development', desc: 'Drone, robotics, and AI/ML education programs designed for schools, colleges, and enterprises.', link: '/education', tag: 'Education' },
-    { icon: '🎓', iconBg: '#10B981', title: 'RPTO Training', desc: 'DGCA-certified remote pilot training — hands-on flight experience and AI simulation modules.', link: '/rpto', tag: 'Certification' },
+    { icon: '🛰️', iconBg: '#2EC4B6', title: 'Digital Agriculture', desc: 'AI-powered NDVI mapping, pesticide spraying, and crop health monitoring for precision farming.', link: '/solutions/agriculture', tag: 'Agriculture', img: 'digital-agriculture-drone.avif' },
+    { icon: '🗺️', iconBg: '#0EA5E9', title: 'Mapping & Survey', desc: 'Sub-centimeter LiDAR accuracy with 70% faster field surveys — 3D terrain models and orthomosaics.', link: '/solutions/mapping', tag: 'Surveying', img: 'lidar-drone_scanning_landscape.avif' },
+    { icon: '🔍', iconBg: '#F59E0B', title: 'Inspection Services', desc: 'Thermal imaging and AI defect detection for windmills, solar panels, and energy infrastructure.', link: '/solutions/inspection', tag: 'Energy', img: 'drone_inspecting_windmill.avif' },
+    { icon: '⛏️', iconBg: '#8B5CF6', title: 'Mining Operations', desc: 'Volumetric stockpile analysis and real-time site monitoring for mining efficiency and safety.', link: '/solutions/mining', tag: 'Mining', img: 'Mining_operations.avif' },
+    { icon: '🤖', iconBg: '#EF4444', title: 'Skill Development', desc: 'Drone, robotics, and AI/ML education programs designed for schools, colleges, and enterprises.', link: '/education', tag: 'Education', img: 'Robotic_dog.avif' },
+    { icon: '🎓', iconBg: '#10B981', title: 'RPTO Training', desc: 'DGCA-certified remote pilot training — hands-on flight experience and AI simulation modules.', link: '/rpto', tag: 'Certification', img: 'hero-education.avif' },
   ];
 
   stats = [

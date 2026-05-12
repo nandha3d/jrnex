@@ -1,102 +1,192 @@
-<div class="solution-page about-page">
-    <!-- Hero -->
-    <header class="solution-hero">
-        <div class="container hero-content">
-            <span class="section-label">About JRNEX</span>
-            <h1>A Full-Spectrum Technology Company</h1>
-            <p class="hero-lead">Delivering actionable intelligence through advanced aerial data, AI-driven analytics,
-                and IoT integration.</p>
+<div class="about-page-v2">
+
+    <!-- ===== CINEMATIC HERO ===== -->
+    <header class="about-hero">
+        <div class="hero-parallax-img"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grain"></div>
+
+        <!-- Decorative geometric shapes -->
+        <div class="hero-shapes">
+            <div class="geo geo-ring"></div>
+            <div class="geo geo-dots"></div>
+            <div class="geo geo-line"></div>
         </div>
-        <div class="hero-bg-overlay"></div>
+
+        <div class="hero-inner">
+            <div class="hero-content-right">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Est. 2020 · Marthandam, India
+                </div>
+                <h1 class="hero-title">
+                    We Build the Future<br>
+                    <span class="accent-text">of Aerial Intelligence</span>
+                </h1>
+                <p class="hero-subtitle">
+                    From autonomous drones to AI-powered analytics — JRNEX is redefining how industries see, understand, and act on the world from above.
+                </p>
+            </div>
+        </div>
     </header>
 
-    <!-- Mission & Vision -->
-    <section class="mission-vision-section">
-        <div class="container">
-            <div class="mv-grid">
-                <div class="mv-card mission-card">
-                    <div class="mv-icon">🎯</div>
-                    <span class="mv-label">Our Mission</span>
-                    <p>{{ mission }}</p>
-                </div>
-                <div class="mv-card vision-card">
-                    <div class="mv-icon">🚀</div>
-                    <span class="mv-label">Our Vision</span>
-                    <p>{{ vision }}</p>
-                </div>
+    <!-- ===== STATS COUNTER BAR ===== -->
+    <section class="stats-ribbon">
+        <div class="container stats-row">
+            <div class="stat-block" *ngFor="let stat of stats">
+                <span class="stat-number">{{ stat.value }}</span>
+                <span class="stat-desc">{{ stat.label }}</span>
             </div>
         </div>
     </section>
 
-    <!-- Our Story -->
-    <section class="our-story">
-        <div class="container">
-            <div class="story-content">
-                <span class="section-label">Our Journey</span>
-                <h2>From a Prototype to a Powerhouse</h2>
+    <!-- ===== OUR STORY — Split Layout ===== -->
+    <section class="story-section">
+        <div class="container story-grid">
+            <div class="story-visual">
+                <div class="visual-frame">
+                    <img src="assets/about-us.avif" alt="JRNEX Team at Work" loading="lazy">
+                    <div class="frame-accent"></div>
+                </div>
+                <div class="float-card card-years">
+                    <span class="fc-number">5+</span>
+                    <span class="fc-text">Years of<br>Innovation</span>
+                </div>
+            </div>
+            <div class="story-text">
+                <span class="section-label">Our Story</span>
+                <h2>From a Prototype<br>to a <span class="text-accent">Powerhouse</span></h2>
                 <p>
-                    Founded in 2020, JRNEX started with a simple belief: that drones could do more than just capture
-                    photos. We saw the potential for aerial data to solve complex industrial problems—from detecting
-                    crop diseases months before they become visible to the naked eye, to mapping thousands of acres of
-                    rugged mining terrain in hours.
+                    Founded in 2020 in the heart of Tamil Nadu, JRNEX began with a bold conviction: drones are more than cameras with wings — they're the nervous system of tomorrow's industries.
                 </p>
                 <p>
-                    Today, we are a full-spectrum technology company, designing our own hardware and software to provide
-                    end-to-end solutions for the most demanding industries.
+                    What started as a small team experimenting with UAV prototypes has grown into a full-spectrum technology company. We design proprietary hardware, develop intelligent software, and deploy end-to-end autonomous solutions across agriculture, mining, mapping, and industrial inspection.
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Values -->
-    <section class="core-values dark-section">
-        <div class="container">
-            <span class="section-label">What Drives Us</span>
-            <h2 class="section-heading">Our Core Values</h2>
-            <div class="values-grid">
-                <div class="value-item" *ngFor="let value of values">
-                    <h3>{{ value.title }}</h3>
-                    <p>{{ value.desc }}</p>
+                <p>
+                    Today, our platforms process terabytes of aerial data daily, turning raw imagery into actionable intelligence that drives efficiency, safety, and sustainable growth for our clients.
+                </p>
+                <div class="story-signature">
+                    <div class="sig-line"></div>
+                    <span>JRNEX Technologies Pvt Ltd</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team -->
-    <section class="team-section">
+    <!-- ===== MISSION & VISION — Offset Cards ===== -->
+    <section class="mv-section">
         <div class="container">
-            <div class="section-header text-center">
-                <span class="section-label">The Experts</span>
-                <h2 class="section-heading">Meet Our Leadership</h2>
-                <p class="section-subtitle">Experienced professionals driving innovation in drone technology</p>
+            <div class="mv-header">
+                <span class="section-label">Purpose & Direction</span>
+                <h2 class="section-heading">What Guides Every Flight</h2>
             </div>
-            <div class="team-grid">
-                <div class="team-card" *ngFor="let member of team">
-                    <div class="team-card-inner">
-                        <div class="member-photo">
-                            <div class="photo-placeholder">
-                                <span class="photo-icon">👤</span>
-                            </div>
+            <div class="mv-offset-grid">
+                <div class="mv-card-v2 mission-v2">
+                    <div class="mv-stripe"></div>
+                    <div class="mv-content">
+                        <div class="mv-icon-wrap">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="6"/>
+                                <circle cx="12" cy="12" r="2"/>
+                            </svg>
                         </div>
-                        <div class="member-details">
-                            <h3>{{ member.name }}</h3>
-                            <span class="member-role">{{ member.role }}</span>
-                            <p class="member-bio">{{ member.bio }}</p>
+                        <h3>Our Mission</h3>
+                        <p>{{ mission }}</p>
+                    </div>
+                </div>
+                <div class="mv-card-v2 vision-v2">
+                    <div class="mv-stripe"></div>
+                    <div class="mv-content">
+                        <div class="mv-icon-wrap">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
                         </div>
+                        <h3>Our Vision</h3>
+                        <p>{{ vision }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Join Us CTA -->
-    <section class="cta-section">
+    <!-- ===== JOURNEY TIMELINE ===== -->
+    <section class="timeline-section">
         <div class="container">
-            <div class="cta-card">
-                <h2>Ready to elevate your career?</h2>
-                <p>We are always looking for passionate people to join our mission.</p>
-                <a routerLink="/contact" class="btn-primary">View Open Positions</a>
+            <div class="timeline-header">
+                <span class="section-label">Milestones</span>
+                <h2 class="section-heading">Our Journey So Far</h2>
+            </div>
+            <div class="timeline-track">
+                <div class="timeline-line"></div>
+                <div class="timeline-item" *ngFor="let milestone of milestones; let i = index" [class.right]="i % 2 !== 0">
+                    <div class="tl-dot">
+                        <span class="tl-year">{{ milestone.year }}</span>
+                    </div>
+                    <div class="tl-card">
+                        <h4>{{ milestone.title }}</h4>
+                        <p>{{ milestone.desc }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- ===== CORE VALUES — Diagonal Section ===== -->
+    <section class="values-section">
+        <div class="values-bg-art">
+            <div class="vbg-circle"></div>
+            <div class="vbg-grid"></div>
+        </div>
+        <div class="container">
+            <div class="values-header">
+                <span class="section-label">What Drives Us</span>
+                <h2 class="section-heading">Our Core Values</h2>
+                <p class="values-subtitle">The principles that define our culture and fuel our ambition.</p>
+            </div>
+            <div class="values-masonry">
+                <div class="value-tile" *ngFor="let value of values; let i = index">
+                    <div class="vt-number">0{{ i + 1 }}</div>
+                    <h3>{{ value.title }}</h3>
+                    <p>{{ value.desc }}</p>
+                    <div class="vt-accent-bar"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY JRNEX — Feature Strip ===== -->
+    <section class="why-strip">
+        <div class="container">
+            <div class="why-header">
+                <span class="section-label">The JRNEX Difference</span>
+                <h2 class="section-heading">Why Industry Leaders Choose Us</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card" *ngFor="let reason of reasons">
+                    <div class="wc-icon">{{ reason.icon }}</div>
+                    <h4>{{ reason.title }}</h4>
+                    <p>{{ reason.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA — Premium Gradient ===== -->
+    <section class="about-cta">
+        <div class="cta-bg-shapes">
+            <div class="cta-ring"></div>
+            <div class="cta-glow"></div>
+        </div>
+        <div class="container cta-inner-v2">
+            <h2>Ready to transform your operations with aerial intelligence?</h2>
+            <p>Let's build the future together. Get in touch with our team of experts.</p>
+            <div class="cta-buttons">
+                <a routerLink="/contact" class="btn-primary">Get Started <span>→</span></a>
+                <a routerLink="/solutions/agriculture" class="btn-secondary">Explore Solutions</a>
+            </div>
+        </div>
+    </section>
+
 </div>

@@ -1,0 +1,141 @@
+<div class="solution-page steam-education-page">
+    <!-- Hero Section -->
+    <header class="solution-hero">
+        <div class="container">
+            <div class="hero-content text-right">
+                <span class="section-label">STEAM Education</span>
+                <h1>Welcome to the Future of Education.</h1>
+                <p class="hero-lead">Empowering the next generation of tech leaders. Discover how we are revolutionizing education through hands-on learning, expert mentorship, and a collaborative community in Science, Technology, Engineering, Arts, and Mathematics.</p>
+                <div class="hero-actions mt-4">
+                    <a href="#programs" class="btn-primary">Discover Our Programs</a>
+                    <a routerLink="/contact" class="btn-secondary ml-3">Join Us Today</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-overlay" style="background-image: linear-gradient(to left, rgba(13, 27, 42, 0.8) 0%, rgba(13, 27, 42, 0) 100%), url('assets/robotics.avif'); background-size: cover; background-position: center;"></div>
+    </header>
+
+    <!-- Lab & Intro Section -->
+    <section class="lab-intro-combined">
+        <div class="container">
+            <div class="lab-intro-grid">
+                <!-- Main Image -->
+                <div class="lab-main-image-wrapper">
+                    <img [src]="labImages[0].src" [alt]="labImages[0].alt" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>JRNEX Innovation Lab</span>
+                    </div>
+                </div>
+
+                <!-- Intro Content -->
+                <div class="steam-intro-content">
+                    <div class="steam-intro-badge">
+                        <span class="intro-icon">⚡</span>
+                        <span>STEAM Innovation Future Labs</span>
+                    </div>
+                    <h2>STEAM Innovation Future Labs <br>by JRNEX Technologies</h2>
+                    <div class="steam-intro-body">
+                        <p>Welcome to the <strong>STEAM Innovation Future Labs</strong> by JRNEX Technologies — a next-generation platform designed to inspire innovation, creativity, and future-ready skills among students. Built around the core pillars of <strong>Science, Technology, Engineering, Arts, and Mathematics (STEAM)</strong>, our labs provide an environment where ideas turn into real-world solutions.</p>
+                        <p>Our Future Labs are equipped with advanced tools and technologies such as robotics kits, 3D printers, Kubo coding robots, Arduino microcontrollers, Quarky kits, drones, fixed-wing aircraft models, IoT-based project systems, and flight simulation setups.</p>
+                        <p>At JRNEX Technologies, students are guided by experienced mentors and industry professionals who help bridge the gap between theoretical knowledge and real-world application. The focus is on developing critical thinking, innovation, teamwork, and technical expertise — skills essential for future careers.</p>
+                        <p class="intro-cta-text">Join the <strong>STEAM Innovation Future Labs</strong> and empower students to lead in the evolving world of robotics and AI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Programs & Services (Dark Background + Reveal Hover) -->
+    <section id="programs" class="service-cards-section bg-dark-v2">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <span class="section-label">Our Expertise</span>
+                <h2 class="section-heading text-white">Our Programs & Services</h2>
+                <p class="section-subtitle text-white-70">Discover our comprehensive STEAM education offerings</p>
+            </div>
+
+            <div class="programs-image-grid">
+                <div class="program-image-card" *ngFor="let card of serviceCards; let i = index" (click)="openCard(i)">
+                    <!-- Main Card View (Front) -->
+                    <div class="card-front">
+                        <div class="card-img-wrapper">
+                            <img [src]="card.image" [alt]="card.title" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title-row">
+                                <span class="card-emoji">{{ card.emoji }}</span>
+                                <h3>{{ card.title }}</h3>
+                            </div>
+                            <p class="card-summary">{{ card.summary }}</p>
+                            <div class="card-footer">
+                                <span class="learn-more">Learn More <i class="arrow-right">→</i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hover Reveal View -->
+                    <div class="card-reveal">
+                        <div class="reveal-header">
+                            <span class="reveal-emoji">{{ card.emoji }}</span>
+                            <h4>{{ card.title }}</h4>
+                        </div>
+                        <p class="reveal-desc">{{ card.summary }}</p>
+                        <div class="reveal-highlights">
+                            <span class="highlight-pill" *ngFor="let h of card.highlights.slice(0, 3)">{{ h }}</span>
+                        </div>
+                        <p class="reveal-tagline">{{ card.tagline }}</p>
+                        <div class="reveal-btn">Click for Full Details</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Detail Modal -->
+    <div class="card-modal-backdrop" *ngIf="activeCard" (click)="closeCard()">
+        <div class="card-modal" (click)="$event.stopPropagation()">
+            <button class="modal-close" (click)="closeCard()">✕</button>
+            <div class="modal-header">
+                <div class="modal-header-bg" [style.background-image]="'url(' + activeCard.image + ')'"></div>
+                <div class="modal-header-content">
+                    <span class="modal-emoji">{{ activeCard.emoji }}</span>
+                    <h2>{{ activeCard.title }}</h2>
+                    <p class="modal-subtitle">JRNEX Technologies</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="full-content">{{ activeCard.fullContent }}</p>
+                <h4>Key Highlights</h4>
+                <ul class="modal-highlights">
+                    <li *ngFor="let h of activeCard.highlights">
+                        <span class="highlight-check">✓</span>
+                        {{ h }}
+                    </li>
+                </ul>
+                <p class="modal-tagline">{{ activeCard.tagline }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Features -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Why Choose Us</span>
+                <h2 class="section-heading">Igniting Curiosity, Fostering Excellence</h2>
+                <p class="section-subtitle">Discover the JRNEX difference in STEAM Education!</p>
+            </div>
+            <div class="comparison-grid features-4-grid">
+                <div class="compare-item" *ngFor="let feature of whyUsFeatures">
+                    <div class="feature-icon mb-3 text-accent">
+                        <span class="emoji-icon">{{ feature.icon }}</span>
+                    </div>
+                    <h4>{{ feature.title }}</h4>
+                    <p>{{ feature.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>

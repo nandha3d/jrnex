@@ -17,24 +17,20 @@ export class Contact {
     {
       title: 'Our Office',
       icon: '📍',
-      details: 'JRNEX Technologies HQ, Bangalore, India - 560001'
+      details: 'JRNEX Technologies Pvt Ltd\n31/62C Anchukannukalungu\nPuthukkdai P.O, Marthandam\nKaniyakumari Dist, TamilNadu\nPin: 629171'
     },
     {
       title: 'Email Us',
       icon: '✉️',
-      details: 'info@jrnex.com'
+      details: 'info@jrnex.in'
     },
     {
       title: 'Call Us',
       icon: '📞',
-      details: '+91 98765 43210'
-    },
-    {
-      title: 'Working Hours',
-      icon: '⏰',
-      details: 'Mon - Fri: 9:00 AM - 6:00 PM'
+      details: '+91 83000 70320'
     }
   ];
+
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({

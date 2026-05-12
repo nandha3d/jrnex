@@ -161,12 +161,12 @@
                 </div>
                 <!-- Slide indicators -->
                 <div class="slide-controls">
-                    <button class="slide-arrow" (click)="prevSlide()">‹</button>
+                    <button class="slide-arrow" aria-label="Previous slide" (click)="prevSlide()">‹</button>
                     <div class="slide-dots">
                         <button *ngFor="let s of heroSlides; let i = index" class="dot"
-                            [class.active]="i === activeSlide" (click)="goToSlide(i)"></button>
+                            [class.active]="i === activeSlide" [attr.aria-label]="'Go to slide ' + (i + 1)" (click)="goToSlide(i)"></button>
                     </div>
-                    <button class="slide-arrow" (click)="nextSlide()">›</button>
+                    <button class="slide-arrow" aria-label="Next slide" (click)="nextSlide()">›</button>
                 </div>
             </div>
         </div>
@@ -206,10 +206,11 @@
                         </span>
                     </div>
 
-                    <!-- Placeholder illustration -->
-                    <div class="card-visual"
-                        [style.background]="'linear-gradient(135deg, ' + s.iconBg + '18, ' + s.iconBg + '08)'">
-                        <div class="visual-placeholder">
+                    <!-- Service Image -->
+                    <div class="card-visual">
+                        <img *ngIf="s.img" [src]="'assets/' + s.img" [alt]="s.title" class="svc-img" loading="lazy">
+                        <div *ngIf="!s.img" class="visual-placeholder"
+                            [style.background]="'linear-gradient(135deg, ' + s.iconBg + '18, ' + s.iconBg + '08)'">
                             <span class="vis-icon">{{ s.icon }}</span>
                             <div class="vis-bars">
                                 <div class="bar b1" [style.background]="s.iconBg"></div>
