@@ -57,7 +57,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       label: 'Inspection Services',
       headline: 'AI-Powered Wind Energy Inspections',
       subtext: 'Autonomous drone inspections for wind turbines, solar farms, and power infrastructure — reducing downtime by 50%.',
-      cta1: 'Book Service', cta1Link: '/solutions/inspection',
+      cta1: 'Book Service', cta1Link: '/contact',
       cta2: 'Learn More', cta2Link: '/solutions/inspection',
       image: 'hero_01.avif',
       gradient: 'linear-gradient(to left, rgba(13, 27, 42, 0.8) 0%, rgba(13, 27, 42, 0.2) 50%, transparent 100%)',
@@ -72,12 +72,12 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       gradient: 'linear-gradient(to left, rgba(13, 42, 26, 0.85) 0%, rgba(13, 42, 26, 0.2) 50%, transparent 100%)',
     },
     {
-      label: 'Drone Education',
-      headline: 'Shaping the Next Generation of Drone Professionals',
+      label: 'Robotics & Drones',
+      headline: 'Shaping the Next Generation of Robotics & Drone Innovators',
       subtext: 'Industry-aligned drone education, robotics training, and AI programs for schools, colleges, and aspiring professionals.',
       cta1: 'Explore Programs', cta1Link: '/education',
       cta2: 'Learn More', cta2Link: '/education',
-      image: 'robotics.avif',
+      image: 'robotics.png',
       gradient: 'linear-gradient(to left, rgba(26, 13, 42, 0.85) 0%, rgba(46, 26, 74, 0.2) 50%, transparent 100%)',
     },
   ];
@@ -92,7 +92,6 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   stats = [
-    { value: '100+', label: 'Projects Completed', icon: '✅' },
     { value: '8+', label: 'Industries Served', icon: '🏭' },
     { value: '50+', label: 'Certified Pilots', icon: '✈️' },
     { value: '12+', label: 'States Covered', icon: '📍' },

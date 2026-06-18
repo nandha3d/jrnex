@@ -16,16 +16,13 @@
                     </li>
                 </ul>
             </li>
-            <li><a routerLink="/rpto" routerLinkActive="active">RPTO<span class="badge">TBD</span></a></li>
-            <li><a routerLink="/education" routerLinkActive="active">EDUCATION</a></li>
-            <li><a routerLink="/steam-education" routerLinkActive="active">STEAM EDUCATION</a></li>
+            <!-- RPTO menu hidden -->
+            <li><a routerLink="/education" routerLinkActive="active">DRONE EDUCATION</a></li>
+            <li><a routerLink="/steam-education" routerLinkActive="active">STEM EDUCATION</a></li>
             <li><a routerLink="/contact" routerLinkActive="active">CONTACT US</a></li>
         </ul>
 
-        <div class="nav-actions">
-            <a routerLink="/contact" class="btn-register">REGISTER</a>
-            <a routerLink="/contact" class="btn-login">LOGIN</a>
-        </div>
+        <!-- Register & Login hidden -->
 
         <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" (click)="isMobileMenuOpen = !isMobileMenuOpen">
             <span></span><span></span><span></span>
@@ -39,9 +36,9 @@
             <li *ngFor="let service of services">
                 <a [routerLink]="service.link" (click)="isMobileMenuOpen = false">{{ service.name }}</a>
             </li>
-            <li><a routerLink="/rpto" (click)="isMobileMenuOpen = false">RPTO</a></li>
-            <li><a routerLink="/education" (click)="isMobileMenuOpen = false">EDUCATION</a></li>
-            <li><a routerLink="/steam-education" (click)="isMobileMenuOpen = false">STEAM EDUCATION</a></li>
+            <!-- RPTO menu hidden -->
+            <li><a routerLink="/education" (click)="isMobileMenuOpen = false">DRONE EDUCATION</a></li>
+            <li><a routerLink="/steam-education" (click)="isMobileMenuOpen = false">STEM EDUCATION</a></li>
             <li><a routerLink="/contact" (click)="isMobileMenuOpen = false">CONTACT US</a></li>
         </ul>
     </div>

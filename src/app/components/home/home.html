@@ -5,6 +5,8 @@
 
         <!-- Crossfade Background Layers -->
         <div *ngFor="let slide of heroSlides; let i = index" class="hero-bg" [class.active]="i === activeSlide"
+            [class.robotics-bg]="slide.image === 'robotics.png'"
+            [class.windmill-bg]="slide.image === 'hero_01.avif'"
             [style.backgroundImage]="slide.image ? slide.gradient + ', url(assets/' + slide.image + ')' : slide.gradient">
         </div>
 
@@ -172,16 +174,8 @@
         </div>
     </section>
 
-    <!-- ===== STATS BAR ===== -->
-    <div class="stats-bar">
-        <div class="container stats-inner">
-            <div class="stat-item" *ngFor="let s of stats">
-                <span class="stat-icon">{{ s.icon }}</span>
-                <span class="stat-value">{{ s.value }}</span>
-                <span class="stat-label">{{ s.label }}</span>
-            </div>
-        </div>
-    </div>
+
+
 
     <!-- ===== SERVICES ===== -->
     <section class="services-section">
@@ -234,6 +228,57 @@
 
 
 
+<!-- ===== STEM EDUCATION ===== -->
+<section class="stem-education-section">
+    <div class="container">
+        <div class="section-header">
+            <div>
+                <span class="section-label">STEM Education</span>
+                <h2 class="section-heading">STEM Innovation Future Labs<br>by JRNEX Technologies</h2>
+            </div>
+            <p class="section-intro">Empowering the next generation of tech leaders through Science, Technology, Engineering, Arts & Mathematics — hands-on learning, expert mentorship, and a collaborative community.</p>
+        </div>
+
+        <div class="stem-grid">
+            <div class="stem-card">
+                <div class="stem-icon" style="background: rgba(46, 196, 182, 0.12)">
+                    <span style="color: #2EC4B6">🚀</span>
+                </div>
+                <h3>Futuristic Workshops</h3>
+                <p>Interactive hands-on learning in robotics, drones, IoT systems, and flight simulation — inspiring students to explore cutting-edge technologies.</p>
+                <a routerLink="/steam-education" class="card-link" style="color: #2EC4B6">Learn More <span>→</span></a>
+            </div>
+            <div class="stem-card">
+                <div class="stem-icon" style="background: rgba(14, 165, 233, 0.12)">
+                    <span style="color: #0EA5E9">🤖</span>
+                </div>
+                <h3>STEM Exhibitions</h3>
+                <p>A platform for young minds to showcase creativity, skills, and technological excellence through live demonstrations and innovation competitions.</p>
+                <a routerLink="/steam-education" class="card-link" style="color: #0EA5E9">Learn More <span>→</span></a>
+            </div>
+            <div class="stem-card">
+                <div class="stem-icon" style="background: rgba(245, 158, 11, 0.12)">
+                    <span style="color: #F59E0B">🛠️</span>
+                </div>
+                <h3>Project Assistance</h3>
+                <p>Complete support from concept to execution — helping students build real-world innovations across robotics, drones, IoT, and embedded systems.</p>
+                <a routerLink="/steam-education" class="card-link" style="color: #F59E0B">Learn More <span>→</span></a>
+            </div>
+            <div class="stem-card">
+                <div class="stem-icon" style="background: rgba(139, 92, 246, 0.12)">
+                    <span style="color: #8B5CF6">👨‍🏫</span>
+                </div>
+                <h3>Teachers Training</h3>
+                <p>Specialized programs empowering educators with modern STEM teaching skills, practical methodologies, and lab setup expertise.</p>
+                <a routerLink="/steam-education" class="card-link" style="color: #8B5CF6">Learn More <span>→</span></a>
+            </div>
+        </div>
+
+        <div class="stem-cta">
+            <a routerLink="/steam-education" class="btn-primary">Explore STEM Programs <span>→</span></a>
+        </div>
+    </div>
+</section>
 
 
 

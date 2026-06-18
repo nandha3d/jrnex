@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-steam-education',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './steam-education.html',
   styleUrls: ['./steam-education.scss']
 })
@@ -66,8 +67,8 @@ export class SteamEducation {
       emoji: '👨‍🏫',
       image: 'assets/hero-education.avif',
       title: 'Teachers Training',
-      summary: 'Specialized programs empowering educators with modern STEAM teaching skills and practical methodologies.',
-      fullContent: 'Empowering educators is key to building future-ready students. JRNEX Technologies offers specialized Teacher Training Programs to equip educators with the knowledge and skills required for modern STEAM education. Our training focuses on practical teaching methods, emerging technologies, and hands-on implementation strategies that can be directly applied in classrooms.',
+      summary: 'Specialized programs empowering educators with modern STEM teaching skills and practical methodologies.',
+      fullContent: 'Empowering educators is key to building future-ready students. JRNEX Technologies offers specialized Teacher Training Programs to equip educators with the knowledge and skills required for modern STEM education. Our training focuses on practical teaching methods, emerging technologies, and hands-on implementation strategies that can be directly applied in classrooms.',
       highlights: [
         'Robotics & Coding Fundamentals',
         'Drone Technology & Aviation Basics',
@@ -99,6 +100,6 @@ export class SteamEducation {
     { icon: '⚛️', title: 'Interdisciplinary Framework', desc: 'We blend science, technology, engineering, arts, and mathematics into a cohesive curriculum designed to build dynamic problem-solving skills.' },
     { icon: '👥', title: 'Tailored Educational Journeys', desc: 'We adapt to each student\'s unique strengths and interests, empowering them to follow their passions and reach their full potential.' },
     { icon: '🖥️', title: 'Immersive Practical Application', desc: 'We emphasize experiential learning by immersing students in real-world projects, robotics building, and interactive, hands-on challenges.' },
-    { icon: '🏅', title: 'Industry-Leading Mentorship', desc: 'Our team consists of seasoned educators and active industry professionals dedicated to delivering top-tier STEAM instruction.' }
+    { icon: '🏅', title: 'Industry-Leading Mentorship', desc: 'Our team consists of seasoned educators and active industry professionals dedicated to delivering top-tier STEM instruction.' }
   ];
 }

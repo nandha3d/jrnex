@@ -16,6 +16,6 @@ export class Navbar {
     { name: 'Digital Agriculture', link: '/solutions/agriculture' },
     { name: 'Mapping & Survey', link: '/solutions/mapping' },
     { name: 'Inspection Services', link: '/solutions/inspection' },
-    { name: 'Mining Operations', link: '/#mining' },
+    { name: 'Mining Operations', link: '/solutions/mining' },
   ];
 }

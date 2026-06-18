@@ -4,6 +4,7 @@ export const routes: Routes = [
     { path: '', loadComponent: () => import('./components/home/home').then(m => m.Home) },
     { path: 'about', loadComponent: () => import('./components/about/about').then(m => m.About) },
     { path: 'education', loadComponent: () => import('./components/education/education').then(m => m.Education) },
+    { path: 'education/skill-development', loadComponent: () => import('./components/education/skill-development/skill-development').then(m => m.SkillDevelopment) },
     { path: 'steam-education', loadComponent: () => import('./components/steam-education/steam-education').then(m => m.SteamEducation) },
     { path: 'solutions/agriculture', loadComponent: () => import('./components/solutions/agriculture/agriculture').then(m => m.Agriculture) },
     { path: 'solutions/mapping', loadComponent: () => import('./components/solutions/mapping/mapping').then(m => m.Mapping) },
