@@ -1,1 +1,0 @@
-import{Ea as e,Ta as n,Ua as s,eb as p}from"./chunk-6FKXPSU3.js";var a=class o{static \u0275fac=function(t){return new(t||o)};static \u0275cmp=e({type:o,selectors:[["app-blog-post"]],decls:2,vars:0,template:function(t,i){t&1&&(n(0,"p"),p(1,"blog-post works!"),s())},encapsulation:2})};export{a as BlogPost};
